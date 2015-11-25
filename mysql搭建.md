@@ -1,1 +1,1 @@
-this is some mysql test
+this is some mysql test!
