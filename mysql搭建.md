@@ -2,17 +2,19 @@
 
 
 
+
+
 #####【知识目标】
 
-1. [数据库服务器的基本概念](https://github.com/JavaServerGroup/notes/blob/master/mysql%E6%90%AD%E5%BB%BA.md "【数据库服务器的基本概念】")
-2. [MySQL的简介](https://github.com/JavaServerGroup/notes/blob/master/mysql%E6%90%AD%E5%BB%BA.md "【MySQL的简介】")
-3. [MySQL服务器的安装](https://github.com/JavaServerGroup/notes/blob/master/mysql%E6%90%AD%E5%BB%BA.md "【MySQL服务器的安装】")
-4. [MySQL服务器的配置](https://github.com/JavaServerGroup/notes/blob/master/mysql%E6%90%AD%E5%BB%BA.md "【MySQL服务器的配置】")
+1. <a href="数据库服务器的基本概念">数据库服务器的基本概念</a>
+2. <a href="MySQL的简介">MySQL的简介</a>
+3. <a href="#MySQL服务器的安装">MySQL服务器的安装</a>
+4. <a href="#MySQL服务器的配置">MySQL服务器的配置</a>
 
 
 
 
-#####【数据库服务器的基本概念】
+#####【<a name="数据库服务器的基本概念" id="数据库服务器的基本概念" ><font color=black>数据库服务器的基本概念</font></a>】
 
 * 数据库
 * 数据库管理系统(DBMS)
@@ -22,12 +24,12 @@
  *  关系型数据库
  *  层次型数据库
  *  网状型数据库
-* 运行在Linux系统上的关系型数据库管理系统主要产品：
-    * 企业级服务器:Oracle、Sybase、DB2
-    * 中小型服务器:MySQL、PostgreSQL
+* 运行在[Linux](http://www.linux.org/resources/)系统上的关系型数据库管理系统主要产品：
+    * 企业级服务器:[Oracle](http://www.oracle.com/index.html)、[Sybase](http://www.sybaseproducts.com/)、[DB2](http://www-01.ibm.com/software/data/db2/)
+    * 中小型服务器:[MySQL](http://www.mysql.com/)、[PostgreSQL](http://www.postgresql.org/)
 
 
-#####【MySQL的简介】
+#####【<a name="MySQL的简介" id="MySQL的简介"><font color=black>MySQL的简介</font></a>】
 总体来说,MySQL数据库管理系统具有以下主要特点:
 
  * 可以运行在不同平台上,支持多用户、多线程和多CPU,没有内存溢出漏洞;
@@ -37,12 +39,12 @@
  * 可以保存超过50,000,000条记录;
  * 用户权限设置简单、有效。
 
-#####【MySQL服务器的安装】
+#####【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】
    方法一：在线安装
 
   * 步骤1:以root身份登录到CentOS系统；
   * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装；
-  ```html
+    ```html
     [root@centos ~]# rpm -qa | grep mysql  ← 查看系统中是否已安装mysql软件
 
   ```
@@ -65,7 +67,7 @@
      
    ```
 
-#####【MySQL服务器的配置】
+#####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】
   * 步骤1:设置MySQL的root用户密码；
      ```html
     [root@centos ~]# mysql -u root　 ← 用root用户登录MySQL服务器
