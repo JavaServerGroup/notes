@@ -1,94 +1,94 @@
-##´î½¨MySQLÊý¾Ý¿â·þÎñÆ÷
+##æ­å»ºMySQLæ•°æ®åº“æœåŠ¡å™¨
 
 
 
 
 
-#####¡¾ÖªÊ¶Ä¿±ê¡¿
+#####ã€çŸ¥è¯†ç›®æ ‡ã€‘
 
-1. <a href="Êý¾Ý¿â·þÎñÆ÷µÄ»ù±¾¸ÅÄî">Êý¾Ý¿â·þÎñÆ÷µÄ»ù±¾¸ÅÄî</a>
-2. <a href="MySQLµÄ¼ò½é">MySQLµÄ¼ò½é</a>
-3. <a href="#MySQL·þÎñÆ÷µÄ°²×°">MySQL·þÎñÆ÷µÄ°²×°</a>
-4. <a href="#MySQL·þÎñÆ÷µÄÅäÖÃ">MySQL·þÎñÆ÷µÄÅäÖÃ</a>
-
-
+1. <a href="#æ•°æ®åº“æœåŠ¡å™¨çš„åŸºæœ¬æ¦‚å¿µ">æ•°æ®åº“æœåŠ¡å™¨çš„åŸºæœ¬æ¦‚å¿µ</a>
+2. <a href="#MySQLçš„ç®€ä»‹">MySQLçš„ç®€ä»‹</a>
+3. <a href="#MySQLæœåŠ¡å™¨çš„å®‰è£…">MySQLæœåŠ¡å™¨çš„å®‰è£…</a>
+4. <a href="#MySQLæœåŠ¡å™¨çš„é…ç½®">MySQLæœåŠ¡å™¨çš„é…ç½®</a>
 
 
-#####¡¾<a name="Êý¾Ý¿â·þÎñÆ÷µÄ»ù±¾¸ÅÄî" id="Êý¾Ý¿â·þÎñÆ÷µÄ»ù±¾¸ÅÄî" ><font color=black>Êý¾Ý¿â·þÎñÆ÷µÄ»ù±¾¸ÅÄî</font></a>¡¿
-
-* Êý¾Ý¿â
-* Êý¾Ý¿â¹ÜÀíÏµÍ³(DBMS)
-* Êý¾Ý¿âÏµÍ³(DBS)
-* Êý¾Ý¿â·þÎñÆ÷
-* Êý¾Ý¿â·ÖÎªÈýÖÖ»ù±¾ÐÎÊ½ :
- *  ¹ØÏµÐÍÊý¾Ý¿â
- *  ²ã´ÎÐÍÊý¾Ý¿â
- *  Íø×´ÐÍÊý¾Ý¿â
-* ÔËÐÐÔÚ[Linux](http://www.linux.org/resources/)ÏµÍ³ÉÏµÄ¹ØÏµÐÍÊý¾Ý¿â¹ÜÀíÏµÍ³Ö÷Òª²úÆ·£º
-    * ÆóÒµ¼¶·þÎñÆ÷:[Oracle](http://www.oracle.com/index.html)¡¢[Sybase](http://www.sybaseproducts.com/)¡¢[DB2](http://www-01.ibm.com/software/data/db2/)
-    * ÖÐÐ¡ÐÍ·þÎñÆ÷:[MySQL](http://www.mysql.com/)¡¢[PostgreSQL](http://www.postgresql.org/)
 
 
-#####¡¾<a name="MySQLµÄ¼ò½é" id="MySQLµÄ¼ò½é"><font color=black>MySQLµÄ¼ò½é</font></a>¡¿   
+#####ã€<a name="æ•°æ®åº“æœåŠ¡å™¨çš„åŸºæœ¬æ¦‚å¿µ" id="æ•°æ®åº“æœåŠ¡å™¨çš„åŸºæœ¬æ¦‚å¿µ" ><font color=black>æ•°æ®åº“æœåŠ¡å™¨çš„åŸºæœ¬æ¦‚å¿µ</font></a>ã€‘
 
- * ¿ÉÒÔÔËÐÐÔÚ²»Í¬Æ½Ì¨ÉÏ,Ö§³Ö¶àÓÃ»§¡¢¶àÏß³ÌºÍ¶àCPU,Ã»ÓÐÄÚ´æÒç³öÂ©¶´;
- * Ìá¹©¶àÖÖÊý¾ÝÀàÐÍ,Ö§³ÖODBC¡¢SSL¡¢Ö§³Ö¶àÖÖÓïÑÔÀûÓÃMySQLµÄAPI½øÐÐ¿ª·¢; 
- * ÊÇÄ¿Ç°ÊÐ³¡ÉÏÏÖÓÐ²úÆ·ÖÐÔËÐÐËÙ¶È×î¿ìµÄÊý¾Ý¿âÏµÍ³;
- * Í¬Ê±·ÃÎÊÊý¾Ý¿âµÄÓÃ»§ÊýÁ¿²»ÊÜÏÞÖÆ;
- * ¿ÉÒÔ±£´æ³¬¹ý50,000,000Ìõ¼ÇÂ¼;
- * ÓÃ»§È¨ÏÞÉèÖÃ¼òµ¥¡¢ÓÐÐ§¡£
+* æ•°æ®åº“
+* æ•°æ®åº“ç®¡ç†ç³»ç»Ÿ(DBMS)
+* æ•°æ®åº“ç³»ç»Ÿ(DBS)
+* æ•°æ®åº“æœåŠ¡å™¨
+* æ•°æ®åº“åˆ†ä¸ºä¸‰ç§åŸºæœ¬å½¢å¼ :
+ *  å…³ç³»åž‹æ•°æ®åº“
+ *  å±‚æ¬¡åž‹æ•°æ®åº“
+ *  ç½‘çŠ¶åž‹æ•°æ®åº“
+* è¿è¡Œåœ¨[Linux](http://www.linux.org/resources/)ç³»ç»Ÿä¸Šçš„å…³ç³»åž‹æ•°æ®åº“ç®¡ç†ç³»ç»Ÿä¸»è¦äº§å“ï¼š
+    * ä¼ä¸šçº§æœåŠ¡å™¨:[Oracle](http://www.oracle.com/index.html)ã€[Sybase](http://www.sybaseproducts.com/)ã€[DB2](http://www-01.ibm.com/software/data/db2/)
+    * ä¸­å°åž‹æœåŠ¡å™¨:[MySQL](http://www.mysql.com/)ã€[PostgreSQL](http://www.postgresql.org/)
 
-#####¡¾<a name="MySQL·þÎñÆ÷µÄ°²×°" id="MySQL·þÎñÆ÷µÄ°²×°"><font color=black>MySQL·þÎñÆ÷µÄ°²×°</font></a>¡¿
-·½·¨Ò»£ºÔÚÏß°²×°
+
+#####ã€<a name="MySQLçš„ç®€ä»‹" id="MySQLçš„ç®€ä»‹"><font color=black>MySQLçš„ç®€ä»‹</font></a>ã€‘   
+
+ * å¯ä»¥è¿è¡Œåœ¨ä¸åŒå¹³å°ä¸Š,æ”¯æŒå¤šç”¨æˆ·ã€å¤šçº¿ç¨‹å’Œå¤šCPU,æ²¡æœ‰å†…å­˜æº¢å‡ºæ¼æ´ž;
+ * æä¾›å¤šç§æ•°æ®ç±»åž‹,æ”¯æŒODBCã€SSLã€æ”¯æŒå¤šç§è¯­è¨€åˆ©ç”¨MySQLçš„APIè¿›è¡Œå¼€å‘; 
+ * æ˜¯ç›®å‰å¸‚åœºä¸ŠçŽ°æœ‰äº§å“ä¸­è¿è¡Œé€Ÿåº¦æœ€å¿«çš„æ•°æ®åº“ç³»ç»Ÿ;
+ * åŒæ—¶è®¿é—®æ•°æ®åº“çš„ç”¨æˆ·æ•°é‡ä¸å—é™åˆ¶;
+ * å¯ä»¥ä¿å­˜è¶…è¿‡50,000,000æ¡è®°å½•;
+ * ç”¨æˆ·æƒé™è®¾ç½®ç®€å•ã€æœ‰æ•ˆã€‚
+
+#####ã€<a name="MySQLæœåŠ¡å™¨çš„å®‰è£…" id="MySQLæœåŠ¡å™¨çš„å®‰è£…"><font color=black>MySQLæœåŠ¡å™¨çš„å®‰è£…</font></a>ã€‘
+æ–¹æ³•ä¸€ï¼šåœ¨çº¿å®‰è£…
   
-  * ²½Öè1:ÒÔrootÉí·ÝµÇÂ¼µ½CentOSÏµÍ³£»
-  * ²½Öè2:²é¿´ÏµÍ³ÖÐÊÇ·ñÒÑ°²×°mysqlÈí¼þ,ÈôÎÞÈÎºÎÏÔÊ¾±íÃ÷Î´°²×°£¬Èç¹ûÓÐ°²×°£¬ÔòÒÆ³ý£¨rpm ¨Ce Ãû³Æ£©£¬Èç¹ûÎ´ÄÜÒÆ³ý£¬ÔòÓÃrpm --nodeps Ãû³Æ»òÊÇÆäËûÇ¿ÖÆÒÆ³ýÃüÁî£»
+  * æ­¥éª¤1:ä»¥rootèº«ä»½ç™»å½•åˆ°CentOSç³»ç»Ÿï¼›
+  * æ­¥éª¤2:æŸ¥çœ‹ç³»ç»Ÿä¸­æ˜¯å¦å·²å®‰è£…mysqlè½¯ä»¶,è‹¥æ— ä»»ä½•æ˜¾ç¤ºè¡¨æ˜Žæœªå®‰è£…ï¼Œå¦‚æžœæœ‰å®‰è£…ï¼Œåˆ™ç§»é™¤ï¼ˆrpm â€“e åç§°ï¼‰ï¼Œå¦‚æžœæœªèƒ½ç§»é™¤ï¼Œåˆ™ç”¨rpm --nodeps åç§°æˆ–æ˜¯å…¶ä»–å¼ºåˆ¶ç§»é™¤å‘½ä»¤ï¼›
     ```html
-    [root@centos ~]# rpm -qa | grep mysql  ¡û ²é¿´ÏµÍ³ÖÐÊÇ·ñÒÑ°²×°mysqlÈí¼þ
+    [root@centos ~]# rpm -qa | grep mysql  â† æŸ¥çœ‹ç³»ç»Ÿä¸­æ˜¯å¦å·²å®‰è£…mysqlè½¯ä»¶
 
   ```
-  * ²½Öè3:ÈôÊÇÓÐÍøÂç¿ÉÒÔÖ±½ÓÍ¨¹ýÃüÁî°²×°£¬CentOSÏµÍ³µÄÃüÁîÊÇyum install mysql-server£¬¶øUbuntuÏµÍ³µÄÃüÁîÊÇapt-get install mysql-server£»
+  * æ­¥éª¤3:è‹¥æ˜¯æœ‰ç½‘ç»œå¯ä»¥ç›´æŽ¥é€šè¿‡å‘½ä»¤å®‰è£…ï¼ŒCentOSç³»ç»Ÿçš„å‘½ä»¤æ˜¯yum install mysql-serverï¼Œè€ŒUbuntuç³»ç»Ÿçš„å‘½ä»¤æ˜¯apt-get install mysql-serverï¼›
    ```html
     [root@centos ~]# yum install mysql-server <-- install mysql-server
 
    ```
-  * ²½Öè4:Æô¶¯mysql£¬²¢ÈÃMySQLÔÚÏµÍ³ÖØÐÂÆô¶¯ºóËæÏµÍ³×Ô¶¯Æô¶¯£»
+  * æ­¥éª¤4:å¯åŠ¨mysqlï¼Œå¹¶è®©MySQLåœ¨ç³»ç»Ÿé‡æ–°å¯åŠ¨åŽéšç³»ç»Ÿè‡ªåŠ¨å¯åŠ¨ï¼›
     ```html
-    [root@centos ~]# chkconfig mysqld on  ¡û ÉèÖÃMySQL·þÎñËæÏµÍ³Æô¶¯×ÔÆô¶¯
-    [root@centos ~]# chkconfig --list mysqld¡¡ ¡û È·ÈÏMySQL×ÔÆô¶¯
+    [root@centos ~]# chkconfig mysqld on  â† è®¾ç½®MySQLæœåŠ¡éšç³»ç»Ÿå¯åŠ¨è‡ªå¯åŠ¨
+    [root@centos ~]# chkconfig --list mysqldã€€ â† ç¡®è®¤MySQLè‡ªå¯åŠ¨
     
-     mysqld  0:off 1:off 2:on 3:on 4:on 5:on 6:off¡¡¡û Èç¹û2--5ÎªonµÄ×´Ì¬¾ÍOK
+     mysqld  0:off 1:off 2:on 3:on 4:on 5:on 6:offã€€â† å¦‚æžœ2--5ä¸ºonçš„çŠ¶æ€å°±OK
 
-    [root@centos ~]# /etc/rc.d/init.d/mysqld start¡¡ ¡û Æô¶¯MySQL·þÎñ
+    [root@centos ~]# /etc/rc.d/init.d/mysqld startã€€ â† å¯åŠ¨MySQLæœåŠ¡
 
-     Initializing MySQL database:¡¡¡¡¡¡¡¡¡¡¡¡¡¡[ OK ]
-     Starting MySQL: ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ ¡¡[ OK ]
+     Initializing MySQL database:ã€€ã€€ã€€ã€€ã€€ã€€ã€€[ OK ]
+     Starting MySQL: ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ ã€€[ OK ]
      
    ```
 
 
-·½·¨¶þ£ºrpm°ü°²×°
+æ–¹æ³•äºŒï¼šrpmåŒ…å®‰è£…
    
-  * ²½Öè1:ÒÔrootÉí·ÝµÇÂ¼µ½CentOSÏµÍ³£»
-  * ²½Öè2:²é¿´ÏµÍ³ÖÐÊÇ·ñÒÑ°²×°mysqlÈí¼þ,ÈôÎÞÈÎºÎÏÔÊ¾±íÃ÷Î´°²×°£¬ÈôÓÐ°²×°£¬ÔòÒÆ³ý£¨rpm ¨Ce Ãû³Æ£©£¬ÈôÎ´ÄÜÒÆ³ý£¬ÔòÓÃrpm --nodeps Ãû³Æ»òÊÇÆäËûÇ¿ÖÆÒÆ³ýÃüÁî£»
+  * æ­¥éª¤1:ä»¥rootèº«ä»½ç™»å½•åˆ°CentOSç³»ç»Ÿï¼›
+  * æ­¥éª¤2:æŸ¥çœ‹ç³»ç»Ÿä¸­æ˜¯å¦å·²å®‰è£…mysqlè½¯ä»¶,è‹¥æ— ä»»ä½•æ˜¾ç¤ºè¡¨æ˜Žæœªå®‰è£…ï¼Œè‹¥æœ‰å®‰è£…ï¼Œåˆ™ç§»é™¤ï¼ˆrpm â€“e åç§°ï¼‰ï¼Œè‹¥æœªèƒ½ç§»é™¤ï¼Œåˆ™ç”¨rpm --nodeps åç§°æˆ–æ˜¯å…¶ä»–å¼ºåˆ¶ç§»é™¤å‘½ä»¤ï¼›
   
   ```html
-    [root@centos ~]# rpm -qa | grep mysql  ¡û ²é¿´ÏµÍ³ÖÐÊÇ·ñÒÑ°²×°mysqlÈí¼þ
+    [root@centos ~]# rpm -qa | grep mysql  â† æŸ¥çœ‹ç³»ç»Ÿä¸­æ˜¯å¦å·²å®‰è£…mysqlè½¯ä»¶
 
   ```
-  * ²½Öè3:ÏÂÔØLinux¶ÔÓ¦µÄRPM°ü£¬´Ë´¦ÒÔMySQL-server-5.5.46-1.el7.x86_64.rpmÎªÀý£¬Â·¾¶Ä¬ÈÏ£»
+  * æ­¥éª¤3:ä¸‹è½½Linuxå¯¹åº”çš„RPMåŒ…ï¼Œæ­¤å¤„ä»¥MySQL-server-5.5.46-1.el7.x86_64.rpmä¸ºä¾‹ï¼Œè·¯å¾„é»˜è®¤ï¼›
   
  ```html
-    [root@centos ~]# rpm -ivh MySQL-server-5.5.46-1.el7.x86_64.rpm ¡û °²×°mysql
+    [root@centos ~]# rpm -ivh MySQL-server-5.5.46-1.el7.x86_64.rpm â† å®‰è£…mysql
 
   ```
    
 
 
-#####¡¾<a name="MySQL·þÎñÆ÷µÄÅäÖÃ" id="MySQL·þÎñÆ÷µÄÅäÖÃ"><font color=black>MySQL·þÎñÆ÷µÄÅäÖÃ</font></a>¡¿
- * ²½Öè1:ÉèÖÃMySQLµÄrootÓÃ»§ÃÜÂë£»
+#####ã€<a name="MySQLæœåŠ¡å™¨çš„é…ç½®" id="MySQLæœåŠ¡å™¨çš„é…ç½®"><font color=black>MySQLæœåŠ¡å™¨çš„é…ç½®</font></a>ã€‘
+ * æ­¥éª¤1:è®¾ç½®MySQLçš„rootç”¨æˆ·å¯†ç ï¼›
      ```html
-    [root@centos ~]# mysql -u root¡¡ ¡û ÓÃrootÓÃ»§µÇÂ¼MySQL·þÎñÆ÷
+    [root@centos ~]# mysql -u rootã€€ â† ç”¨rootç”¨æˆ·ç™»å½•MySQLæœåŠ¡å™¨
 
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 19
@@ -101,47 +101,47 @@
 
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-    mysql> select user,host,password from mysql.user;¡¡ ¡û ²é¿´ÓÃ»§ÐÅÏ¢
+    mysql> select user,host,password from mysql.user;ã€€ â† æŸ¥çœ‹ç”¨æˆ·ä¿¡æ¯
    
     +--------+-------------------+-----------------------------------------+
     |  user  | host              | password                                |
     +--------+-------------------+-----------------------------------------+
-    |  root  | localhost         |                                         |   ¡û rootÃÜÂëÎª¿Õ
+    |  root  | localhost         |                                         |   â† rootå¯†ç ä¸ºç©º
     |  root  | ip-172-17-20-18   |                                         |
     |  root  | 127.0.0.1         |                                         |
     |        | localhost         |                                         |
     |        | ip-172-17-20-18   |                                         |
     +--------+-----------------+-------------------------------------------+
     5 rows in set (0.00 sec)
-   mysql> set password for root@localhost=password('rootÃÜÂë');¡¡¡û ÉèÖÃrootÃÜÂë 
+   mysql> set password for root@localhost=password('rootå¯†ç ');ã€€â† è®¾ç½®rootå¯†ç  
    
    Query OK, 0 rows affected (0.01 sec)
    
-   mysql> select user,host,password from mysql.user;¡¡ ¡û ²é¿´ÓÃ»§ÐÅÏ¢
+   mysql> select user,host,password from mysql.user;ã€€ â† æŸ¥çœ‹ç”¨æˆ·ä¿¡æ¯
    
    +--------+--------------------+-----------------------------------------+
-   |  user  | host¡¡¡¡¡¡¡¡¡¡¡¡  ¡¡ | password¡¡     ¡¡¡¡                     |
+   |  user  | hostã€€ã€€ã€€ã€€ã€€ã€€  ã€€ | passwordã€€     ã€€ã€€                     |
    +--------+--------------------+-----------------------------------------+
-   |  root  | localhost¡¡¡¡¡¡¡¡   | 19b68057189b027f                        |¡¡ ¡û rootÃÜÂë±»ÉèÖÃ
-   |  root  | ip-172-17-20-18¡¡¡¡|                                         |¡¡ 
-   |  root¡¡| 127.0.0.1          | ¡¡¡¡¡¡¡¡¡¡¡¡¡¡                          ¡¡|
-   | ¡¡¡¡   | localhost¡¡¡¡¡¡¡¡¡¡  |¡¡¡¡¡¡¡¡¡¡¡¡¡¡   ¡¡                        |
+   |  root  | localhostã€€ã€€ã€€ã€€   | 19b68057189b027f                        |ã€€ â† rootå¯†ç è¢«è®¾ç½®
+   |  root  | ip-172-17-20-18ã€€ã€€|                                         |ã€€ 
+   |  rootã€€| 127.0.0.1          | ã€€ã€€ã€€ã€€ã€€ã€€ã€€                          ã€€|
+   | ã€€ã€€   | localhostã€€ã€€ã€€ã€€ã€€  |ã€€ã€€ã€€ã€€ã€€ã€€ã€€   ã€€                        |
    |        | ip-172-17-20-18    |                                         |
    +-------+---------------------+-----------------------------------------+
    5 rows in set (0.01 sec)
    
-   mysql> exit¡¡ ¡û ÍË³öMySQL·þÎñÆ÷
+   mysql> exitã€€ â† é€€å‡ºMySQLæœåŠ¡å™¨
    
     Bye
 
    ```
- * ²½Öè2:²âÊÔÒ»ÏÂrootÃÜÂëÊÇ·ñÉúÐ§
+ * æ­¥éª¤2:æµ‹è¯•ä¸€ä¸‹rootå¯†ç æ˜¯å¦ç”Ÿæ•ˆ
   ```html
-    [root@centos ~]# mysql -u root -p¡¡ ¡û Í¨¹ýÃÜÂëÓÃrootµÇÂ¼
-    Enter password:¡¡ ¡û ÔÚÕâÀïÊäÈëÃÜÂë
+    [root@centos ~]# mysql -u root -pã€€ â† é€šè¿‡å¯†ç ç”¨rootç™»å½•
+    Enter password:ã€€ â† åœ¨è¿™é‡Œè¾“å…¥å¯†ç 
 
    Welcome to the MySQL monitor.  Commands end with ; or \g.  
-    Your MySQL connection id is 19   ¡û È·ÈÏÓÃÃÜÂëÄÜ¹»³É¹¦µÇÂ¼
+    Your MySQL connection id is 19   â† ç¡®è®¤ç”¨å¯†ç èƒ½å¤ŸæˆåŠŸç™»å½•
     Server version: 5.1.73 Source distribution
 
     Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
@@ -155,10 +155,10 @@
     
     Bye
   ```
- * ²½Öè3:´´½¨²¢ÊÚÈ¨ÐÂÓÃ»§
+ * æ­¥éª¤3:åˆ›å»ºå¹¶æŽˆæƒæ–°ç”¨æˆ·
   ```html
-    [root@centos ~]# mysql -u root -p¡¡ ¡û Í¨¹ýÃÜÂëÓÃrootµÇÂ¼
-    Enter password:¡¡ ¡û ÔÚÕâÀïÊäÈëÃÜÂë
+    [root@centos ~]# mysql -u root -pã€€ â† é€šè¿‡å¯†ç ç”¨rootç™»å½•
+    Enter password:ã€€ â† åœ¨è¿™é‡Œè¾“å…¥å¯†ç 
 
     Welcome to the MySQL monitor.  Commands end with ; or \g.  
     Your MySQL connection id is 19   
@@ -171,31 +171,31 @@
 
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
     
-    mysql> grant select on *.* to dengli@localhost identified by '123456';¡¡ ¡û ½¨Á¢¶ÔÈÎÒâÊý¾Ý¿â¡¢±íÓÐ²é¿´²Ù×÷È¨ÏÞµÄÃûÎªdengliµÄÓÃ»§£¬ÃÜÂëÊÇ123456
+    mysql> grant select on *.* to dengli@localhost identified by '123456';ã€€ â† å»ºç«‹å¯¹ä»»æ„æ•°æ®åº“ã€è¡¨æœ‰æŸ¥çœ‹æ“ä½œæƒé™çš„åä¸ºdengliçš„ç”¨æˆ·ï¼Œå¯†ç æ˜¯123456
     
     Query OK, 0 rows affected (0.03 sec)
     
-    mysql> select user,host,password from mysql.user;¡¡ ¡û È·ÈÏdengliÓÃ»§µÄ´æÔÚÓë·ñ
+    mysql> select user,host,password from mysql.user;ã€€ â† ç¡®è®¤dengliç”¨æˆ·çš„å­˜åœ¨ä¸Žå¦
     
     +--------+---------------------+--------------------------------------+ 
-    |  user  | host¡¡¡¡¡¡¡¡¡¡¡¡¡¡    | password¡¡     ¡¡                   ¡¡|
+    |  user  | hostã€€ã€€ã€€ã€€ã€€ã€€ã€€    | passwordã€€     ã€€                   ã€€|
     +--------+---------------------+--------------------------------------+ 
-    |  root  | localhost¡¡¡¡¡¡¡¡¡¡  | 19b68057189b027f                     |¡¡
-    |  root  | ip-172-17-20-18¡¡ ¡¡|                                      |¡¡  
-    |  root¡¡| 127.0.0.1           | ¡¡¡¡¡¡¡¡¡¡¡¡¡¡                       ¡¡|
-    | ¡¡¡¡   | localhost¡¡¡¡¡¡¡¡  ¡¡ |¡¡¡¡¡¡¡¡¡¡¡¡¡¡   ¡¡                     |
+    |  root  | localhostã€€ã€€ã€€ã€€ã€€  | 19b68057189b027f                     |ã€€
+    |  root  | ip-172-17-20-18ã€€ ã€€|                                      |ã€€  
+    |  rootã€€| 127.0.0.1           | ã€€ã€€ã€€ã€€ã€€ã€€ã€€                       ã€€|
+    | ã€€ã€€   | localhostã€€ã€€ã€€ã€€  ã€€ |ã€€ã€€ã€€ã€€ã€€ã€€ã€€   ã€€                     |
     |        | ip-172-17-20-18     |                                      | 
-    | dengli | %                   | 49ba59abbe56e057                     |  ¡û rootÃÜÂë±»ÉèÖÃ 
+    | dengli | %                   | 49ba59abbe56e057                     |  â† rootå¯†ç è¢«è®¾ç½® 
     +------+-----------------------+--------------------------------------+ 
     
     6 row in set (0.01 sec)
     
-    mysql> exit¡¡ ¡û ÍË³öMySQL·þÎñÆ÷
+    mysql> exitã€€ â† é€€å‡ºMySQLæœåŠ¡å™¨
     
     Bye
     
-    [root@centos ~]# mysql -u centospub -p¡¡ ¡û ÓÃÐÂ½¨Á¢µÄdengliÓÃ»§µÇÂ¼MySQL·þÎñÆ÷
-    Enter password:¡¡ ¡û ÔÚÕâÀïÊäÈëÃÜÂë
+    [root@centos ~]# mysql -u centospub -pã€€ â† ç”¨æ–°å»ºç«‹çš„dengliç”¨æˆ·ç™»å½•MySQLæœåŠ¡å™¨
+    Enter password:ã€€ â† åœ¨è¿™é‡Œè¾“å…¥å¯†ç 
      Welcome to the MySQL monitor.  Commands end with ; or \g.  
     Your MySQL connection id is 19   
     Server version: 5.1.73 Source distribution
@@ -217,13 +217,13 @@
     1 row in set (0.00 sec)
     
   ```
- * ²½Öè4:ÉèÖÃÁ¬½Ó¶Ë¿Ú£¨3306£©
+ * æ­¥éª¤4:è®¾ç½®è¿žæŽ¥ç«¯å£ï¼ˆ3306ï¼‰
   ```html
   [root@centos ~]# vim /etc/sysconfig/iptables
   ```
- ÔÚiptablesµÄÎÄ¼þÖÐÌí¼Ó -I INPUT -p tcp --dport 3306 -j ACCEPT£¬È»ºó±£´æÍË³ö¡£
+ åœ¨iptablesçš„æ–‡ä»¶ä¸­æ·»åŠ  -I INPUT -p tcp --dport 3306 -j ACCEPTï¼Œç„¶åŽä¿å­˜é€€å‡ºã€‚
 
- µ½´ËÒÑ¾­Íê³ÉÁË´î½¨MySQLÊý¾Ý¿â·þÎñÆ÷£¡   
+ åˆ°æ­¤å·²ç»å®Œæˆäº†æ­å»ºMySQLæ•°æ®åº“æœåŠ¡å™¨ï¼   
   
 
 
