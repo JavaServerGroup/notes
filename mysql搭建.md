@@ -4,7 +4,7 @@
 
 
 
-#####【知识目标】
+#####【<a name="知识目标念" id="知识目标" ><font color=black>知识目标</font></a>】
 
 1. <a href="数据库服务器的基本概念">数据库服务器的基本概念</a>
 2. <a href="MySQL的简介">MySQL的简介</a>
@@ -29,8 +29,7 @@
     * 中小型服务器:[MySQL](http://www.mysql.com/)、[PostgreSQL](http://www.postgresql.org/)
 
 
-#####【<a name="MySQL的简介" id="MySQL的简介"><font color=black>MySQL的简介</font></a>】
-总体来说,MySQL数据库管理系统具有以下主要特点:
+#####【<a name="MySQL的简介" id="MySQL的简介"><font color=black>MySQL的简介</font></a>】   
 
  * 可以运行在不同平台上,支持多用户、多线程和多CPU,没有内存溢出漏洞;
  * 提供多种数据类型,支持ODBC、SSL、支持多种语言利用MySQL的API进行开发; 
@@ -39,7 +38,7 @@
  * 可以保存超过50,000,000条记录;
  * 用户权限设置简单、有效。
 
-#####【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】
+#####【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】    <button><a href="#知识目标" style=" text-decoration:none" ><font color="black">回到顶部</font></a></button>
    方法一：在线安装
 
   * 步骤1:以root身份登录到CentOS系统；
@@ -63,11 +62,11 @@
     [root@centos ~]# /etc/rc.d/init.d/mysqld start　 ← 启动MySQL服务
 
      Initializing MySQL database:　　　　　　　[ OK ]
-     Starting MySQL: 　　　　　　　　　　　　　[ OK ]
+     Starting MySQL: 　　　　　　　　　　　　 　[ OK ]
      
    ```
 
-#####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】
+#####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】    <button><a href="#知识目标" style=" text-decoration:none" ><font color="black">回到顶部</font></a></button>
   * 步骤1:设置MySQL的root用户密码；
      ```html
     [root@centos ~]# mysql -u root　 ← 用root用户登录MySQL服务器
@@ -102,12 +101,12 @@
    mysql> select user,host,password from mysql.user;　 ← 查看用户信息
    
    +--------+--------------------+-----------------------------------------+
-   |  user  | host　　　　　　　   | password　     　　                      |
+   |  user  | host　　　　　　　 | password　     　　                     |
    +--------+--------------------+-----------------------------------------+
-   |  root  | localhost　　　　   | 19b68057189b027f                        |　 ← root密码被设置
-   |  root  | ip-172-17-20-18　　 |                                         |　
-   |  root　| 127.0.0.1           | 　　　　　　　                        　  |
-   | 　　   | localhost　　　　　  |　　　　　　　   　                        |
+   |  root  | localhost　　　　  | 19b68057189b027f                        |　 ← root密码被设置
+   |  root  | ip-172-17-20-18　　|                                         |　 
+   |  root　| 127.0.0.1          | 　　　　　　　                        　|
+   | 　　   | localhost　　　　　|　　　　　　　   　                      |
    |        | ip-172-17-20-18    |                                         |
    +-------+---------------------+-----------------------------------------+
    5 rows in set (0.01 sec)
@@ -160,12 +159,12 @@
     mysql> select user,host,password from mysql.user;　 ← 确认dengli用户的存在与否
     
     +--------+---------------------+--------------------------------------+ 
-    |  user  | host　　　　　　　   | password　     　                   　|
+    |  user  | host　　　　　　　  | password　     　                  　| 
     +--------+---------------------+--------------------------------------+ 
-    |  root  | localhost　　　　　  | 19b68057189b027f                      |　
-    |  root  | ip-172-17-20-18　 　|                                       |　
-    |  root　| 127.0.0.1           | 　　　　　　　                     　  |
-    | 　　   | localhost　　　　　   |　　　　　　　   　                     |
+    |  root  | localhost　　　　　 | 19b68057189b027f                     |　  
+    |  root  | ip-172-17-20-18　 　|                                      |　  
+    |  root　| 127.0.0.1           | 　　　　　　　                     　| 
+    | 　　   | localhost　　　　　 |　　　　　　　   　                   | 
     |        | ip-172-17-20-18     |                                      | 
     | dengli | %                   | 49ba59abbe56e057                     |  ← root密码被设置 
     +------+-----------------------+--------------------------------------+ 
@@ -205,7 +204,7 @@
   ```
  在iptables的文件中添加 -I INPUT -p tcp --dport 3306 -j ACCEPT，然后保存退出。
 
- 到此已经完成了搭建MySQL数据库服务器！
+ 到此已经完成了搭建MySQL数据库服务器！   
   
 
 
