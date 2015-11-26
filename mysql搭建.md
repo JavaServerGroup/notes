@@ -69,14 +69,16 @@
 
    方法二：rpm包安装
    
-   * 步骤1:以root身份登录到CentOS系统；
-   * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装，若有安装，则移除（rpm –e 名称），若未能移除，则用rpm --nodeps 名称或是其他强制移除命令；
-       ```html
+  * 步骤1:以root身份登录到CentOS系统；
+  * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装，若有安装，则移除（rpm –e 名称），若未能移除，则用rpm --nodeps 名称或是其他强制移除命令；
+  
+  ```html
     [root@centos ~]# rpm -qa | grep mysql  ← 查看系统中是否已安装mysql软件
 
   ```
-   * 步骤3:下载Linux对应的RPM包，此处以MySQL-server-5.5.46-1.el7.x86_64.rpm为例，路径默认；
-        ```html
+  * 步骤3:下载Linux对应的RPM包，此处以MySQL-server-5.5.46-1.el7.x86_64.rpm为例，路径默认；
+  
+ ```html
     [root@centos ~]# rpm -ivh MySQL-server-5.5.46-1.el7.x86_64.rpm ← 安装mysql
 
   ```
@@ -84,7 +86,7 @@
 
 
 #####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】
-  * 步骤1:设置MySQL的root用户密码；
+ * 步骤1:设置MySQL的root用户密码；
      ```html
     [root@centos ~]# mysql -u root　 ← 用root用户登录MySQL服务器
 
@@ -133,7 +135,7 @@
     Bye
 
    ```
-  * 步骤2:测试一下root密码是否生效
+ * 步骤2:测试一下root密码是否生效
   ```html
     [root@centos ~]# mysql -u root -p　 ← 通过密码用root登录
     Enter password:　 ← 在这里输入密码
@@ -153,7 +155,7 @@
     
     Bye
   ```
-  * 步骤3:创建并授权新用户
+ * 步骤3:创建并授权新用户
   ```html
     [root@centos ~]# mysql -u root -p　 ← 通过密码用root登录
     Enter password:　 ← 在这里输入密码
@@ -215,7 +217,7 @@
     1 row in set (0.00 sec)
     
   ```
-  * 步骤4:设置连接端口（3306）
+ * 步骤4:设置连接端口（3306）
   ```html
   [root@centos ~]# vim /etc/sysconfig/iptables
   ```
