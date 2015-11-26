@@ -4,7 +4,7 @@
 
 
 
-#####【<a name="知识目标念" id="知识目标" ><font color=black>知识目标</font></a>】
+#####【知识目标】
 
 1. <a href="数据库服务器的基本概念">数据库服务器的基本概念</a>
 2. <a href="MySQL的简介">MySQL的简介</a>
@@ -38,11 +38,11 @@
  * 可以保存超过50,000,000条记录;
  * 用户权限设置简单、有效。
 
-#####【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】    <button><a href="#知识目标" style=" text-decoration:none" ><font color="black">回到顶部</font></a></button>
+#####【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】
    方法一：在线安装
-
+  
   * 步骤1:以root身份登录到CentOS系统；
-  * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装；
+  * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装，如果有安装，则移除（rpm –e 名称），如果未能移除，则用rpm --nodeps 名称或是其他强制移除命令；
     ```html
     [root@centos ~]# rpm -qa | grep mysql  ← 查看系统中是否已安装mysql软件
 
@@ -66,7 +66,24 @@
      
    ```
 
-#####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】    <button><a href="#知识目标" style=" text-decoration:none" ><font color="black">回到顶部</font></a></button>
+
+   方法二：rpm包安装
+   
+   * 步骤1:以root身份登录到CentOS系统；
+   * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装，若有安装，则移除（rpm –e 名称），若未能移除，则用rpm --nodeps 名称或是其他强制移除命令；
+       ```html
+    [root@centos ~]# rpm -qa | grep mysql  ← 查看系统中是否已安装mysql软件
+
+  ```
+   * 步骤3:下载Linux对应的RPM包，此处以MySQL-server-5.5.46-1.el7.x86_64.rpm为例，路径默认；
+        ```html
+    [root@centos ~]# rpm -ivh MySQL-server-5.5.46-1.el7.x86_64.rpm ← 安装mysql
+
+  ```
+   
+
+
+#####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】
   * 步骤1:设置MySQL的root用户密码；
      ```html
     [root@centos ~]# mysql -u root　 ← 用root用户登录MySQL服务器
@@ -101,12 +118,12 @@
    mysql> select user,host,password from mysql.user;　 ← 查看用户信息
    
    +--------+--------------------+-----------------------------------------+
-   |  user  | host　　　　　　　 | password　     　　                     |
+   |  user  | host　　　　　　  　 | password　     　　                     |
    +--------+--------------------+-----------------------------------------+
-   |  root  | localhost　　　　  | 19b68057189b027f                        |　 ← root密码被设置
+   |  root  | localhost　　　　   | 19b68057189b027f                        |　 ← root密码被设置
    |  root  | ip-172-17-20-18　　|                                         |　 
-   |  root　| 127.0.0.1          | 　　　　　　　                        　|
-   | 　　   | localhost　　　　　|　　　　　　　   　                      |
+   |  root　| 127.0.0.1          | 　　　　　　　                          　|
+   | 　　   | localhost　　　　　  |　　　　　　　   　                        |
    |        | ip-172-17-20-18    |                                         |
    +-------+---------------------+-----------------------------------------+
    5 rows in set (0.01 sec)
@@ -159,12 +176,12 @@
     mysql> select user,host,password from mysql.user;　 ← 确认dengli用户的存在与否
     
     +--------+---------------------+--------------------------------------+ 
-    |  user  | host　　　　　　　  | password　     　                  　| 
+    |  user  | host　　　　　　　    | password　     　                   　|
     +--------+---------------------+--------------------------------------+ 
-    |  root  | localhost　　　　　 | 19b68057189b027f                     |　  
+    |  root  | localhost　　　　　  | 19b68057189b027f                     |　
     |  root  | ip-172-17-20-18　 　|                                      |　  
-    |  root　| 127.0.0.1           | 　　　　　　　                     　| 
-    | 　　   | localhost　　　　　 |　　　　　　　   　                   | 
+    |  root　| 127.0.0.1           | 　　　　　　　                       　|
+    | 　　   | localhost　　　　  　 |　　　　　　　   　                     |
     |        | ip-172-17-20-18     |                                      | 
     | dengli | %                   | 49ba59abbe56e057                     |  ← root密码被设置 
     +------+-----------------------+--------------------------------------+ 
