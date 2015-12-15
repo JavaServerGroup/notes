@@ -43,37 +43,60 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
      命令是apt-get install gcc，而centOS系统的命令是yum install gcc，这里建议加入参数-y，命令是：yum -y install gcc，意思是自动选择y安装
 
 * 步骤2：openssl安装，下载openssl，地址是https://www.openssl.org/source/，然后选择适当的版本，或者直接wget https://www.openssl.org/source/openssl-fips-2.0.10.tar.gz
+* 
         [root@localhost mrms]# tar -zxvf openssl-fips-2.0.10.tar.gz //解压缩
+       
         [root@localhost mrms]# cd openssl-fips-2.0.10  //切换目录
+
         [root@localhost openssl-fips-2.0.10]# ./config //配置
+        
         [root@localhost openssl-fips-2.0.10]# make && make install //安装
             
 * 步骤3：zlib安装，下载zlib，地址是http://www.zlib.net/ ，然后选择适当的版本，或者直接wget http://www.zlib.net/zlib-1.2.8.tar.gz
+* 
         [root@localhost mrms]# tar -zxvf zlib-1.2.8.tar.gz //解压缩
+
         [root@localhost mrms]# cd zlib-1.2.8  //切换目录
+        
         [root@localhost zlib-1.2.8]# ./configure //配置
+        
         [root@localhost zlib-1.2.8]# make && make install //安装
 
 * 步骤4：pcre安装，下载pcre，地址是http://sourceforge.net/projects/pcre/files/，然后选择适当的版本，或者直接wget http://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.gz
         [root@localhost mrms]# tar -zxvf pcre-8.37.tar.gz  //解压缩
+
         [root@localhost mrms]# cd pcre-8.37  //切换目录
+        
         [root@localhost pcre-8.37]# ./configure  //配置
+        
         [root@localhost pcre-8.37]# make && make install //安装
+        
 * 步骤5：nginx安装，下载nginx ，地址是http://nginx.org/en/download.html，然后选择适当的版本，或者直接wget http://nginx.org/download/nginx-1.9.6.tar.gz
         [root@localhost mrms]# tar -zxvf nginx-1.9.6.tar.gz //解压缩
+
         [root@localhost mrms]# cd nginx-1.9.6 //切换目录
+        
         [root@localhost nginx-1.9.6]# ./configure --prefix=/userdata1/nginx --with-openssl=../openssl --with-zlib=../zlib --with-pcre=../pcre //配置
+        
         [root@localhost nginx-1.9.6]# make && make install //安装
+        
     切记编译安装Nginx时，命令./configure 后面带的参数很重要，建议像我这样加上比较好。
 
 * 步骤6：检查nginx是否安装成功
         [root@localhost nginx-1.9.6]# ./../../nginx/sbin/nginx -t
+
             nginx: the configuration file /userdata1/nginx/conf/nginx.conf syntax is ok
+            
+            
             nginx: configuration file /userdata1/nginx/conf/nginx.conf test is successful
-    至此Nginx安装完成！
+            
+            
+至此Nginx安装完成！
+    
 
 * 步骤7：启动nginx
-        [root@localhost nginx-1.9.6]# cd /userdata1/nginx/sbin/
+        [root@localhost nginx-1.9.6]# cd /userdata1/nginx/sbin
+
         [root@localhost sbin]# ./nginx
     
 * 步骤8：检查nginx是否启动
@@ -102,6 +125,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
  保存退出。
 * 步骤2：重启nginx
         [root@localhost conf]# /userdata1/nginx/sbin -t  //检验修改处是否正确符合规定，若未提示错误，即可重启nginx
+
         [root@localhost conf]# /userdata1/nginx/sbin -s reload  //重启nginx
  
 
