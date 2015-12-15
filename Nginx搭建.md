@@ -86,8 +86,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
         [root@localhost nginx-1.9.6]# ./../../nginx/sbin/nginx -t
 
             nginx: the configuration file /userdata1/nginx/conf/nginx.conf syntax is ok
-            
-            
+             
             nginx: configuration file /userdata1/nginx/conf/nginx.conf test is successful
             
             
@@ -101,6 +100,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
     
 * 步骤8：检查nginx是否启动
         [root@localhost sbin]# netstat -ntlp
+
          Proto Recv-Q Send-Q Local Address     Foreign Address           State       PID/Program name
          tcp        0      0 127.0.0.1:3306      0.0.0.0:*               LISTEN      1329/mysqld     
          tcp        0      0 0.0.0.0:80          0.0.0.0:*               LISTEN      32129/nginx     
