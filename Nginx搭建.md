@@ -36,8 +36,8 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
  
 
 #####【<a name="Nginx的安装和启动" id="Nginx的安装和启动"><font color=black>Nginx的安装和启动</font></a>】
-方法一：源码编译安装依赖库+源码编译安装nginx，不建议yum安装nginx，不然会为后续的配置带来不少麻烦
-    下载并安装所需要的依赖库，依次是：gcc（一般的机器都已经安装gcc）、openssl、zlib、pcre
+源码编译安装依赖库+源码编译安装nginx，不建议yum安装nginx，不然会为后续的配置带来不少麻烦
+下载并安装所需要的依赖库，依次是：gcc（一般的机器都已经安装gcc）、openssl、zlib、pcre
 
 * 步骤1：gcc安装，gcc没安装的话不能进行源码编译安装，所以得先确认服务器有没有安装gcc，命令是rpm -qa|grep gcc,无显示内容则表示没有安装，而对于安装gcc来说，不同的系统命令不同，Ubuntu系统的
      命令是apt-get install gcc，而centOS系统的命令是yum install gcc，这里建议加入参数-y，命令是：yum -y install gcc，意思是自动选择y安装
