@@ -112,7 +112,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
 
  因为工作安排，我这里需要搭建一个Nginx(Web Server)+Tomcat+DB(MySql)(db已经搭建)的环境，nginx监听本机的tomcat，所以需要在配置文件中修改一些内容，
    
-* 步骤1：打开/userdata1/nginx/conf目录下的nginx.conf，需要配置的内容是
+    * 步骤1：打开/userdata1/nginx/conf目录下的nginx.conf，需要配置的内容是
        (1)添加upstream，具体是:
           upstream hostname{
                server 127.0.0.1:8080；
@@ -123,7 +123,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
                  proxy_set_header X-Real-IP $remote_addr;
          }
  保存退出。
-* 步骤2：重启nginx
+    * 步骤2：重启nginx
         [root@localhost conf]# /userdata1/nginx/sbin -t  //检验修改处是否正确符合规定，若未提示错误，即可重启nginx
 
         [root@localhost conf]# /userdata1/nginx/sbin -s reload  //重启nginx
