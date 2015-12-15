@@ -87,7 +87,7 @@
            proxy_set_header X-Real-IP $remote_addr;
      }
  保存退出。
-   * 步骤2：重启nginx
+* 步骤2：重启nginx
      [root@localhost conf]# /userdata1/nginx/sbin -t  //检验修改处是否正确符合规定，若未提示错误，即可重启nginx
      [root@localhost conf]# /userdata1/nginx/sbin -s reload  //重启nginx
  
