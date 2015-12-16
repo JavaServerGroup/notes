@@ -104,14 +104,13 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
     
 * 步骤8：检查nginx是否启动
         
-       [root@localhost sbin]# netstat -ntlp
-
-         Proto Recv-Q Send-Q Local Address     Foreign Address           State       PID/Program name
-         tcp        0      0 127.0.0.1:3306      0.0.0.0:*               LISTEN      1329/mysqld     
-         tcp        0      0 0.0.0.0:80          0.0.0.0:*               LISTEN      32129/nginx     
-         tcp        0      0 127.0.1.1:53        0.0.0.0:*               LISTEN      1336/dnsmasq    
-         tcp        0      0 127.0.0.1:631       0.0.0.0:*               LISTEN      7098/cupsd      
-         tcp6       0      0 ::1:631                  :::*               LISTEN      7098/cupsd 
+         [root@localhost sbin]# netstat -ntlp
+           Proto Recv-Q Send-Q Local Address     Foreign Address           State       PID/Program name
+           tcp        0      0 127.0.0.1:3306      0.0.0.0:*               LISTEN      1329/mysqld     
+           tcp        0      0 0.0.0.0:80          0.0.0.0:*               LISTEN      32129/nginx     
+           tcp        0      0 127.0.1.1:53        0.0.0.0:*               LISTEN      1336/dnsmasq    
+           tcp        0      0 127.0.0.1:631       0.0.0.0:*               LISTEN      7098/cupsd      
+           tcp6       0      0 ::1:631                  :::*               LISTEN      7098/cupsd 
     
 #####【<a name="Nginx的配置" id="Nginx的配置"><font color=black>Nginx的配置</font></a>】   
 
