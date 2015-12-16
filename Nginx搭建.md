@@ -63,6 +63,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
         [root@localhost zlib-1.2.8]# make && make install //安装
 
 * 步骤4：pcre安装，下载pcre，地址是http://sourceforge.net/projects/pcre/files/，然后选择适当的版本，或者直接wget http://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.gz
+        
         [root@localhost mrms]# tar -zxvf pcre-8.37.tar.gz  //解压缩
 
         [root@localhost mrms]# cd pcre-8.37  //切换目录
@@ -72,6 +73,7 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
         [root@localhost pcre-8.37]# make && make install //安装
         
 * 步骤5：nginx安装，下载nginx ，地址是http://nginx.org/en/download.html，然后选择适当的版本，或者直接wget http://nginx.org/download/nginx-1.9.6.tar.gz
+        
         [root@localhost mrms]# tar -zxvf nginx-1.9.6.tar.gz //解压缩
 
         [root@localhost mrms]# cd nginx-1.9.6 //切换目录
@@ -83,7 +85,8 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
     切记编译安装Nginx时，命令./configure 后面带的参数很重要，建议像我这样加上比较好。
 
 * 步骤6：检查nginx是否安装成功
-        [root@localhost nginx-1.9.6]# ./../../nginx/sbin/nginx -t
+        
+          [root@localhost nginx-1.9.6]# ./../../nginx/sbin/nginx -t
 
             nginx: the configuration file /userdata1/nginx/conf/nginx.conf syntax is ok
              
@@ -94,12 +97,14 @@ Nginx(发音同engine x)是一款[轻量级](http://baike.baidu.com/link?url=Cex
     
 
 * 步骤7：启动nginx
+        
         [root@localhost nginx-1.9.6]# cd /userdata1/nginx/sbin
 
         [root@localhost sbin]# ./nginx
     
 * 步骤8：检查nginx是否启动
-        [root@localhost sbin]# netstat -ntlp
+        
+       [root@localhost sbin]# netstat -ntlp
 
          Proto Recv-Q Send-Q Local Address     Foreign Address           State       PID/Program name
          tcp        0      0 127.0.0.1:3306      0.0.0.0:*               LISTEN      1329/mysqld     
