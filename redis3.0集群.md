@@ -24,8 +24,8 @@ set(集合)、zset(sorted set --有序集合)和hash（哈希类型）。这些�
 
 #####【<a name="redis 创建集群" id="redis 创建集群"><font color=black>redis 创建集群</font></a>】   
 
-详细安装步聚请参考:http://blog.csdn.net/xu470438000/article/details/42971091
-官网集群说明参考:http://redis.io/topics/cluster-tutorial
+    详细安装步聚请参考:http://blog.csdn.net/xu470438000/article/details/42971091
+    官网集群说明参考:http://redis.io/topics/cluster-tutorial
 
 注意：redis2.x的版本不支持集群模式。
    官网说明文档集群需要六个节点。要让集群正常工作至少需要3个主节点，在这里我们要创建6个redis节点，其中三个为主节点，三个为从节点。
@@ -36,57 +36,57 @@ set(集合)、zset(sorted set --有序集合)和hash（哈希类型）。这些�
 redis-cli -c -p 7000  客户端连接，注意-c参数，查找时不在本端口，会自动切换到有数据的那个端口下。
 
 127.0.0.1:7000> cluster nodes       
-  7a6121a5d8c87fc5345f6812e41c83f5163f2db6 127.0.0.1:7002 master - 0 1458546962094 3 connected 10923-16383
-  9939a801cf27710cd3ecbcde33b0f1d15b4af834 127.0.0.1:7000 myself,master - 0 0 1 connected 0-5460
-  1e60c2a340fc70a812392f098eec97c20557954b 127.0.0.1:7001 master - 0 1458546961593 2 connected 5461-10922
-  4af9487baf21d763d7872436677af3404ba5dccd 127.0.0.1:7004 slave 1e60c2a340fc70a812392f098eec97c20557954b 0 1458546961092 5 connected
-  011d4c450f6f21d05ed655f6b57020ad284e9cf8 127.0.0.1:7003 slave 9939a801cf27710cd3ecbcde33b0f1d15b4af834 0 1458546960592 4 connected
-  e6a251b28ad454dbea3bd972cb7d128403c0415e 127.0.0.1:7005 slave 7a6121a5d8c87fc5345f6812e41c83f5163f2db6 0 1458546961593 6 connected
+     7a6121a5d8c87fc5345f6812e41c83f5163f2db6 127.0.0.1:7002 master - 0 1458546962094 3 connected 10923-16383
+    9939a801cf27710cd3ecbcde33b0f1d15b4af834 127.0.0.1:7000 myself,master - 0 0 1 connected 0-5460
+    1e60c2a340fc70a812392f098eec97c20557954b 127.0.0.1:7001 master - 0 1458546961593 2 connected 5461-10922
+    4af9487baf21d763d7872436677af3404ba5dccd 127.0.0.1:7004 slave 1e60c2a340fc70a812392f098eec97c20557954b 0 1458546961092 5 connected
+    011d4c450f6f21d05ed655f6b57020ad284e9cf8 127.0.0.1:7003 slave 9939a801cf27710cd3ecbcde33b0f1d15b4af834 0 1458546960592 4 connected
+    e6a251b28ad454dbea3bd972cb7d128403c0415e 127.0.0.1:7005 slave 7a6121a5d8c87fc5345f6812e41c83f5163f2db6 0 1458546961593 6 connected
 
   用于查看当前Redis节点 所属的Redis集群中的所有节点。
   master表示主，slave表示从，slave后的id对应主的id。myself表示在当前那一台。
   
-127.0.0.1:7000> cluster slots
-1) 1) (integer) 10923
-   2) (integer) 16383
-   3) 1) "127.0.0.1"
-      2) (integer) 7002
-   4) 1) "127.0.0.1"
-      2) (integer) 7005
-2) 1) (integer) 0
-   2) (integer) 5460
-   3) 1) "127.0.0.1"
-      2) (integer) 7000
-   4) 1) "127.0.0.1"
-      2) (integer) 7003
-3) 1) (integer) 5461
-   2) (integer) 10922
-   3) 1) "127.0.0.1"
-      2) (integer) 7001
-   4) 1) "127.0.0.1"
-      2) (integer) 7004
+    127.0.0.1:7000> cluster slots
+      1) 1) (integer) 10923
+         2) (integer) 16383
+         3) 1) "127.0.0.1"
+            2) (integer) 7002
+         4) 1) "127.0.0.1"
+            2) (integer) 7005
+      2) 1) (integer) 0
+         2) (integer) 5460
+         3) 1) "127.0.0.1"
+            2) (integer) 7000
+         4) 1) "127.0.0.1"
+            2) (integer) 7003
+      3) 1) (integer) 5461
+         2) (integer) 10922
+         3) 1) "127.0.0.1"
+            2) (integer) 7001
+         4) 1) "127.0.0.1"
+            2) (integer) 7004
 
   查看当前的集群状态，以数组形式展示。
   
-127.0.0.1:7000> cluster info
-  cluster_state:ok
-  cluster_slots_assigned:16384
-  cluster_slots_ok:16384
-  cluster_slots_pfail:0
-  cluster_slots_fail:0
-  cluster_known_nodes:6
-  cluster_size:3
-  cluster_current_epoch:7
-  cluster_my_epoch:3
-  cluster_stats_messages_sent:26914
-  cluster_stats_messages_received:26281
+    127.0.0.1:7000> cluster info
+    cluster_state:ok
+    cluster_slots_assigned:16384
+    cluster_slots_ok:16384
+    cluster_slots_pfail:0
+    cluster_slots_fail:0
+    cluster_known_nodes:6
+    cluster_size:3
+    cluster_current_epoch:7
+    cluster_my_epoch:3
+    cluster_stats_messages_sent:26914
+    cluster_stats_messages_received:26281
   
-用于查看当前Redis节点所属的Redis集群的整体状态。
+   用于查看当前Redis节点所属的Redis集群的整体状态。
 
-例：
-set beyond "aaa"  会自动保存到一个节点，并切换到对应节点 如：7001
-get abc  会自动去查找，找到返回数据，没有找到返回(nil) 
-从上面知道：7001是主，7004是从，我把7001停止后，在查找abc仍然能找到（这时7004是主了），7004也停止后，找不到。
+    例：
+    set beyond "aaa"  会自动保存到一个节点，并切换到对应节点 如：7001
+    get abc  会自动去查找，找到返回数据，没有找到返回(nil) 
+    从上面知道：7001是主，7004是从，我把7001停止后，在查找abc仍然能找到（这时7004是主了），7004也停止后，找不到。
 
   
 #####【<a name="java访问redis集群" id="java访问redis集群"><font color=black>java访问redis集群</font></a>】
@@ -97,18 +97,17 @@ get abc  会自动去查找，找到返回数据，没有找到返回(nil)
 			<version>2.7.0</version>
 		</dependency>
   
-package com.afmobi;
+    package com.afmobi;
 
-import java.util.HashSet;
-import java.util.Set;
-import org.junit.Test;
-import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.JedisCluster;
+    import java.util.HashSet;
+    import java.util.Set;
+    import org.junit.Test;
+    import redis.clients.jedis.HostAndPort;
+    import redis.clients.jedis.JedisCluster;
 
-
-public class TestJedisCluster{
-	private static JedisCluster jc;  
-	static {  
+    public class TestJedisCluster{
+	  private static JedisCluster jc;  
+	  static {  
 	     //只给集群里一个实例就可以  
 	      Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();  
 	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7000));  
