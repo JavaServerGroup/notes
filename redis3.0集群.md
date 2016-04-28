@@ -35,33 +35,42 @@ set(集合)、zset(sorted set --有序集合)和hash（哈希类型）。这些�
    官网说明文档集群需要六个节点。要让集群正常工作至少需要3个主节点，在这里我们要创建6个redis节点，其中三个为主节点，三个为从节点。
    
 简易说明：   
-   mkdir 7000 7001 7002 7003 7004 7005   
-   每个目录放一个redis.conf  
-   port 7000 每个目录名为端口  
-   cluster-enabled yes  
-   cluster-config-file nodes.conf  
-   cluster-node-timeout 5000  
-   appendonly yes  
-
-   启动 分别进入每一个目录启动    
-    cd 7000/  
-    ../../redis-3.0.1/src/redis-server redis.conf  
-    cd ../7001/  
-    ../../redis-3.0.1/src/redis-server redis.conf  
-    ......  
-    cd ../7005/  
-    ../../redis-3.0.1/src/redis-server redis.conf  
-
-需要一些环境： sudo apt-get install ruby  
-             sudo apt-get install rubygems  
-             gem install redis  
-创建集群：默认前三台为主节点，后三台为从节点. 选项 --replicas 1 表示我们希望为集群中的每个主节点创建一个从节点。  
+```shell
+mkdir 7000 7001 7002 7003 7004 7005
+```
+每个目录放一个redis.conf  
+port 7000 每个目录名为端口  
+```shell
+cluster-enabled yes  
+cluster-config-file nodes.conf  
+cluster-node-timeout 5000  
+appendonly yes 
+```
+启动 分别进入每一个目录启动 
+```shell
+cd 7000/  
+../../redis-3.0.1/src/redis-server redis.conf  
+cd ../7001/  
+../../redis-3.0.1/src/redis-server redis.conf  
+......  
+cd ../7005/  
+../../redis-3.0.1/src/redis-server redis.conf
+```
+需要一些环境： 
+```shell
+sudo apt-get install ruby  
+sudo apt-get install rubygems  
+gem install redis
+```
+创建集群：默认前三台为主节点，后三台为从节点. 选项 --replicas 1 表示我们希望为集群中的每个主节点创建一个从节点。
+```shell
 ./redis-trib.rb create --replicas 1 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003   127.0.0.1:7004 127.0.0.1:7005  
+```
 输入yes创建成功  
 
 #####【<a name="redis-cli使用集群" id="redis-cli使用集群"><font color=black>redis-cli使用集群</font></a>】
-
-redis-cli -c -p 7000  客户端连接，注意-c参数，查找时不在本端口，会自动切换到有数据的那个端口下。  
+```shell
+redis-cli -c -p 7000  #客户端连接，注意-c参数，查找时不在本端口，会自动切换到有数据的那个端口下。  
 
 127.0.0.1:7000> cluster nodes         
      7a6121a5d8c87fc5345f6812e41c83f5163f2db6 127.0.0.1:7002 master - 0 1458546962094 3 connected 10923-16383
@@ -70,93 +79,95 @@ redis-cli -c -p 7000  客户端连接，注意-c参数，查找时不在本端�
     4af9487baf21d763d7872436677af3404ba5dccd 127.0.0.1:7004 slave 1e60c2a340fc70a812392f098eec97c20557954b 0 1458546961092 5 connected
     011d4c450f6f21d05ed655f6b57020ad284e9cf8 127.0.0.1:7003 slave 9939a801cf27710cd3ecbcde33b0f1d15b4af834 0 1458546960592 4 connected
     e6a251b28ad454dbea3bd972cb7d128403c0415e 127.0.0.1:7005 slave 7a6121a5d8c87fc5345f6812e41c83f5163f2db6 0 1458546961593 6 connected
+```
+用于查看当前Redis节点 所属的Redis集群中的所有节点。  
+master表示主，slave表示从，slave后的id对应主的id。myself表示在当前那一台。
+```shell
+127.0.0.1:7000> cluster slots
+1) 1) (integer) 10923
+ 2) (integer) 16383
+ 3) 1) "127.0.0.1"
+    2) (integer) 7002
+ 4) 1) "127.0.0.1"
+    2) (integer) 7005
+2) 1) (integer) 0
+ 2) (integer) 5460
+ 3) 1) "127.0.0.1"
+    2) (integer) 7000
+ 4) 1) "127.0.0.1"
+    2) (integer) 7003
+3) 1) (integer) 5461
+ 2) (integer) 10922
+ 3) 1) "127.0.0.1"
+    2) (integer) 7001
+ 4) 1) "127.0.0.1"
+    2) (integer) 7004
+ ```
+查看当前的集群状态，以数组形式展示。
+```shell
+127.0.0.1:7000> cluster info
+cluster_state:ok
+cluster_slots_assigned:16384
+cluster_slots_ok:16384
+cluster_slots_pfail:0
+cluster_slots_fail:0
+cluster_known_nodes:6
+cluster_size:3
+cluster_current_epoch:7
+cluster_my_epoch:3
+cluster_stats_messages_sent:26914
+cluster_stats_messages_received:26281
+```
+用于查看当前Redis节点所属的Redis集群的整体状态。
 
-  用于查看当前Redis节点 所属的Redis集群中的所有节点。  
-  master表示主，slave表示从，slave后的id对应主的id。myself表示在当前那一台。
-  
-    127.0.0.1:7000> cluster slots
-      1) 1) (integer) 10923
-         2) (integer) 16383
-         3) 1) "127.0.0.1"
-            2) (integer) 7002
-         4) 1) "127.0.0.1"
-            2) (integer) 7005
-      2) 1) (integer) 0
-         2) (integer) 5460
-         3) 1) "127.0.0.1"
-            2) (integer) 7000
-         4) 1) "127.0.0.1"
-            2) (integer) 7003
-      3) 1) (integer) 5461
-         2) (integer) 10922
-         3) 1) "127.0.0.1"
-            2) (integer) 7001
-         4) 1) "127.0.0.1"
-            2) (integer) 7004
+例：
+```shell
+set beyond "aaa"  #会自动保存到一个节点，并切换到对应节点 如：7001
+get abc  #会自动去查找，找到返回数据，没有找到返回(nil) 
+```
+从上面知道：7001是主，7004是从，我把7001停止后，在查找abc仍然能找到（这时7004是主了），7004也停止后，找不到。
 
-  查看当前的集群状态，以数组形式展示。
-  
-    127.0.0.1:7000> cluster info
-    cluster_state:ok
-    cluster_slots_assigned:16384
-    cluster_slots_ok:16384
-    cluster_slots_pfail:0
-    cluster_slots_fail:0
-    cluster_known_nodes:6
-    cluster_size:3
-    cluster_current_epoch:7
-    cluster_my_epoch:3
-    cluster_stats_messages_sent:26914
-    cluster_stats_messages_received:26281
-  
-   用于查看当前Redis节点所属的Redis集群的整体状态。
-
-    例：
-    set beyond "aaa"  会自动保存到一个节点，并切换到对应节点 如：7001
-    get abc  会自动去查找，找到返回数据，没有找到返回(nil) 
-    从上面知道：7001是主，7004是从，我把7001停止后，在查找abc仍然能找到（这时7004是主了），7004也停止后，找不到。
-
-  
 #####【<a name="java访问redis集群" id="java访问redis集群"><font color=black>java访问redis集群</font></a>】
+```xml
+<dependency>
+	<groupId>redis.clients</groupId>
+	<artifactId>jedis</artifactId>
+	<version>2.7.0</version>
+</dependency>
+```
+```java
+package com.afmobi;
 
-        <dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-  
-    package com.afmobi;
+import java.util.HashSet;
+import java.util.Set;
+import org.junit.Test;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisCluster;
 
-    import java.util.HashSet;
-    import java.util.Set;
-    import org.junit.Test;
-    import redis.clients.jedis.HostAndPort;
-    import redis.clients.jedis.JedisCluster;
+public class TestJedisCluster{
+    private static JedisCluster jc;  
+    static {  
+    	//只给集群里一个实例就可以
+    	Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();  
+    	jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7000));  
+    	jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7001));  
+        jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7002));
+        jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7003));  
+        jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7004));  
+        jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7005));
+        jc = new JedisCluster(jedisClusterNodes);  
+    }  
 
-    public class TestJedisCluster{
-	  private static JedisCluster jc;  
-	  static {  
-	     //只给集群里一个实例就可以  
-	      Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();  
-	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7000));  
-	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7001));  
-	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7002));
-	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7003));  
-	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7004));  
-	      jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7005));
-	      jc = new JedisCluster(jedisClusterNodes);  
-	  }  
-	
-	@Test
-	public void testredis() {
-		//jc.set("foo", "bar");
-		String value = jc.get("foo");
-		System.out.println(value);
-		System.out.println(jc.get("beyond"));
-	}
-	
+    @Test
+    public void testredis() {
+	//jc.set("foo", "bar");
+	String value = jc.get("foo");
+	System.out.println(value);
+	System.out.println(jc.get("beyond"));
+    }
+
 }
-
+```
 
 #####【<a name="spring-data访问redis集群" id="spring-data访问redis集群"><font color=black>spring-data访问redis集群</font></a>】
 
@@ -169,59 +180,67 @@ Maven pom.xml配置
 </dependency>
 ```
 spring xml配置
+```xml
 <bean id="clusterRedisNodes0"   class="org.springframework.data.redis.connection.RedisNode">
-        <constructor-arg value="127.0.0.1" />
-        <constructor-arg value="7000" type="int" />
-    </bean>
+<constructor-arg value="127.0.0.1" />
+<constructor-arg value="7000" type="int" />
+</bean>
 
-    <bean id="clusterRedisNodes1"   class="org.springframework.data.redis.connection.RedisNode">
-        <constructor-arg value="127.0.0.1" />
-        <constructor-arg value="7001" type="int" />
-    </bean>
-    ..............
-    
-    <bean id="redisClusterConfiguration"               class="org.springframework.data.redis.connection.RedisClusterConfiguration">
-        <property name="clusterNodes">
-            <set>
-                <ref bean="clusterRedisNodes0"/>
-                ................
-                <ref bean="clusterRedisNodes5"/>
-            </set>
+<bean id="clusterRedisNodes1"   class="org.springframework.data.redis.connection.RedisNode">
+<constructor-arg value="127.0.0.1" />
+<constructor-arg value="7001" type="int" />
+</bean>
+..............
 
-        </property>
-    </bean>
-    
-    <bean id="jedisConnFactory"   class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:use-pool="true">
-        <constructor-arg ref="redisClusterConfiguration" />
-    </bean>
+<bean id="redisClusterConfiguration"               class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+<property name="clusterNodes">
+    <set>
+        <ref bean="clusterRedisNodes0"/>
+        ................
+        <ref bean="clusterRedisNodes5"/>
+    </set>
 
-    <bean id="redisTemplate"   class="org.springframework.data.redis.core.RedisTemplate"  p:connection-factory-ref="jedisConnFactory" >
-        <property name="keySerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
-        </property>
-        <property name="valueSerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
-        </property>
-    </bean>
+</property>
+</bean>
+
+<bean id="jedisConnFactory"   class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:use-pool="true">
+<constructor-arg ref="redisClusterConfiguration" />
+</bean>
+
+<bean id="redisTemplate"   class="org.springframework.data.redis.core.RedisTemplate"  p:connection-factory-ref="jedisConnFactory" >
+<property name="keySerializer">
+    <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+</property>
+<property name="valueSerializer">
+    <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+</property>
+</bean>
+```
     
- java 代码中使用  
-    @Autowired  
-	private RedisTemplate<String, String> redisTemplate;  
-    redisTemplate.opsForValue().set("test", "test");  
+java 代码中使用
+```java
+@Autowired  
+private RedisTemplate<String, String> redisTemplate;  
+redisTemplate.opsForValue().set("test", "test");  
+```
 
 
 #####【<a name="redis集群分片" id="redis集群分片"><font color=black>redis集群分片</font></a>】
 
-  当集群的redis内存不够用时，需要新增加节点  
-  新增加一台7006,配置与上面的一样，启动后  
-  在集群中新增加一台节点，默认为主节点  
-  ./redis-trib.rb add-node 127.0.0.1:7006 127.0.0.1:7000  
-  也可以让它成为从节点，7fec61c9df3e7d739916d63a5d1172a23d169c72（需要做为它的从节点ID）  
-  127.0.0.1:7006>cluster replicate 7fec61c9df3e7d739916d63a5d1172a23d169c72  
-  
-  新增加的节点是无法使用的，因为哈希槽为0，需要分片分配哈希槽(看特别说明)  
-  ./redis-trib.rb reshard 127.0.0.1:7000
-  
+当集群的redis内存不够用时，需要新增加节点 
+新增加一台7006,配置与上面的一样，启动后  
+在集群中新增加一台节点，默认为主节点
+```shell
+./redis-trib.rb add-node 127.0.0.1:7006 127.0.0.1:7000  
+```
+也可以让它成为从节点，7fec61c9df3e7d739916d63a5d1172a23d169c72（需要做为它的从节点ID）
+```shell
+127.0.0.1:7006>cluster replicate 7fec61c9df3e7d739916d63a5d1172a23d169c72  
+```
+新增加的节点是无法使用的，因为哈希槽为0，需要分片分配哈希槽(看特别说明) 
+```shell
+./redis-trib.rb reshard 127.0.0.1:7000
+```
   How many slots do you want to move (from 1 to 16384)? 4096  
  需要输入分给7006的哈希槽区间，这里我们4个主节点平均分配就是4096  
 What is the receiving node ID? 0d1f9c979684e0bffc8230c7bb6c7c0d37d8a5a9(这个是移动到7006的id)  
@@ -245,11 +264,10 @@ Do you want to proceed with the proposed reshard plan (yes/no)? yes
     与此类似， 如果用户要从集群中移除节点 A ， 那么集群只需要将节点 A 中的所有哈希槽移动到节点 B 和节点 C ， 然后再移除空白（不包含任何哈希槽）的节点 A 就可以了。  
 因为将一个哈希槽从一个节点移动到另一个节点不会造成节点阻塞， 所以无论是添加新节点还是移除已存在节点， 又或者改变某个节点包含的哈希槽数量， 都不会造成集群下线。
 
-```xml
+
 注意：比如A B C是主节点，它们每台都有一个从节点。  
      当B出问题了，它的从节点会自动成为主节点，如果B主节点从节点都出问题了，B 负责处理 5501 号至 11000 号哈希槽就处理不了，整个集群就出问题了。  
      想移除B节点之前，先备份它的哈希槽到其他节点之后在移除。 
-```
   
   
   
