@@ -161,13 +161,13 @@ redis-cli -c -p 7000  客户端连接，注意-c参数，查找时不在本端�
 #####【<a name="spring-data访问redis集群" id="spring-data访问redis集群"><font color=black>spring-data访问redis集群</font></a>】
 
 Maven pom.xml配置  
-
-<dependency>
+```xml
+<dependency>  
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-redis</artifactId>
     <version>1.7.1.RELEASE</version>
 </dependency>
-
+```
 spring xml配置
 <bean id="clusterRedisNodes0"   class="org.springframework.data.redis.connection.RedisNode">
         <constructor-arg value="127.0.0.1" />
