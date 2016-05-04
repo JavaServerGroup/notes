@@ -1,4 +1,4 @@
-[TOC]
+{:toc}
 
 # docker 介绍
 
