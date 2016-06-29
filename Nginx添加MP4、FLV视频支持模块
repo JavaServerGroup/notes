@@ -1,6 +1,7 @@
 
 
-由于公司配置nginx默认是没有编译MP4支持模块，于是尝试重新编译添加MP4支持模块，由于各种原因，原有nginx不建议重新增加模块，于是我重新又开了一个nginx进程，步骤如下：
+由于公司配置nginx默认是没有编译MP4支持模块，于是尝试重新编译添加MP4支持模块，由于各种原因，原有nginx不建议重新增加模块，于是
+我重新又开了一个nginx进程，步骤如下：
 
 第一步，下载安装nginx，命令是
     # wget http://nginx.org/download/nginx-1.10.1.tar.gz  -->建议下载nginx最新稳定版
@@ -18,8 +19,9 @@
       --with-ngx_http_core_module
       --with-http_mp4_module              -->MP4视频支持模块
       --with-http_flv_module              -->FLV视频支持模块
-    # make && make install   -->此步骤最容易出错，通常是由于pcre，zlib，openssl模块没有正确编译，报错通常是/opt/pcre-8.32，/opt/zlib-1.2.8，/opt/zlib-1.2.8 目录不存在，于是转而安装pcre，zlib，openssl，步骤请参考
-https://github.com/JavaServerGroup/notes/blob/master/Nginx%E6%90%AD%E5%BB%BA.md#nginx的安装和启动 
+    # make && make install   -->此步骤最容易出错，通常是由于pcre，zlib，openssl模块没有正确编译，报错通常是/opt/pcre-8.32，
+    /opt/zlib-1.2.8，/opt/zlib-1.2.8 目录不存在，于是转而安装pcre，zlib，openssl，步骤请参考
+    https://github.com/JavaServerGroup/notes/blob/master/Nginx%E6%90%AD%E5%BB%BA.md#nginx的安装和启动 
 
 第二步，修改配置文件&防火墙，命令是
     # cd /DISKB/nginx/conf/
