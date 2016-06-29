@@ -4,6 +4,7 @@
 我重新又开了一个nginx进程，步骤如下：
 
 第一步，下载安装nginx，命令是
+
     # wget http://nginx.org/download/nginx-1.10.1.tar.gz  -->建议下载nginx最新稳定版
     # tar -zxvf nginx-1.10.1.tar.gz        -->解压
     # cd nginx-1.10.1
@@ -24,6 +25,7 @@
     https://github.com/JavaServerGroup/notes/blob/master/Nginx%E6%90%AD%E5%BB%BA.md#nginx的安装和启动 
 
 第二步，修改配置文件&防火墙，命令是
+
     # cd /DISKB/nginx/conf/
     # vim nginx.conf   -->下面只列出http段，而且只要修改该段就行
     ...
@@ -79,11 +81,14 @@
     # service /etc/sysconfig/iptables restart  -->重启防火墙
     
 第三步，启动nginx
+
     # /DISKB/nginx/sbin/nginx -c /DISKB/nginx/conf/nginx.conf -t -->检验配置文件的正确性
     # /DISKB/nginx/sbin/nginx -c /DISKB/nginx/conf/nginx.conf    -->启动nginx，建议采用绝对路径启动
 第四步，检验是否配置成功
-    将.mp4、.flv后缀名的文件放到相应的目录下，再去浏览器访问，访问路径是http://ip:8081/mp4/test.mp4，
-    我这里只验证了MP4视频，如果能正确访，问则表明配置成功，命令是
+    
+   将.mp4、.flv后缀名的文件放到相应的目录下，再去浏览器访问，访问路径是http://ip:8081/mp4/test.mp4，
+   我这里只验证了MP4视频，如果能正确访，问则表明配置成功，命令是
+
     # cd /DISKB/nginx/html/
     # mkdir mp4 flv
     # cp /home/www/test.mp4 mp4
