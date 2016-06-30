@@ -49,6 +49,7 @@ EXPOSE表示开放80端口
     ENTRYPOINT [""]
 类似与CMD指令，不同之处在于启动时的指定指令会被作为参数传进去
 与CMD可以组合
+
     ENTRYPOINT ["/usr/sbin/nginx"]
     CMD ["-h"]
 表示既可以默认启动后执行命令-h，也可以传入参数执行nginx命令
