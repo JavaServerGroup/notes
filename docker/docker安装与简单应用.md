@@ -37,7 +37,7 @@ Docker 是一个开源的应用容器引擎，让开发者可以打包他们的�
     $ sudo docker info //docker 进程信息
 
 ***
-# <span id = "4">容器与镜像/span>
+# <span id = "4">容器与镜像</span>
 
     $ sudo docker run -t -i centos /bin/bash
 
