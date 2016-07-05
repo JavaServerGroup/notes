@@ -1,0 +1,18 @@
+一、日志系统地址、用户、密码
+	访问地址：http://52.76.173.113:8888/
+	用户名：deng1
+	密码：123456
+
+二、相关概念介绍
+	1、索引
+		索引是ElasticSearch存储数据的地方（类似于数据库中的DataBase）。索引可以包含许多Type(类似于表的结构)，
+	Type下面又可以包含许多Document（类似于表记录），Document又由许多Field组成（类似于字段）。
+	
+	2、log信息保存在哪？
+		log信息一般会包含message、userId、logId、level、time等等Field，ElasticSearch会把每个字段做些处理然后
+	添加到Document中，最后保存到相应索引中。
+	
+三、各页面功能
+	1、索引详情页，以时间倒叙展示所有保存了log信息的索引。详细功能见index.png
+	2、精确搜索页，详细功能见accurate-search.png。
+	3、模糊搜索页，详细功能见fuzzy-search.png。
