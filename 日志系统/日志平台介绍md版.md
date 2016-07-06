@@ -19,7 +19,7 @@
     ![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/index.png)
     2、精确搜索页。
     ![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/accurate-search.png)
-	3、模糊搜索页。
-	![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/fuzzy-search.png)
+		3、模糊搜索页。
+		![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/fuzzy-search.png)
 	
 	
