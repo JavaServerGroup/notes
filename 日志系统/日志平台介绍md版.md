@@ -15,11 +15,12 @@
     中，最后保存到相应索引中。
 
 ### 三、各页面功能
+![index](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/index.png)
     1、索引详情页，以时间倒叙展示所有保存了log信息的索引。
-    ![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/index.png)
+    ![index](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/index.png)
     2、精确搜索页。
-    ![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/accurate-search.png)
-		3、模糊搜索页。
-		![image](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/fuzzy-search.png)
-	
+    ![accurate-search](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/accurate-search.png)
+    3、模糊搜索页。
+    ![fuzzy-search](https://github.com/JavaServerGroup/notes/blob/master/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/fuzzy-search.png)
+
 	
