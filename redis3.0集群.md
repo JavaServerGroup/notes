@@ -9,6 +9,7 @@
 5. <a href="#spring-data访问redis集群">spring-data访问redis集群</a>
 6. <a href="#redis集群分片">redis集群分片</a>
 7. <a href="#特别说明">特别说明</a>
+8. <a href="#性能测试">性能测试</a>
 
 
 
@@ -269,6 +270,24 @@ Do you want to proceed with the proposed reshard plan (yes/no)? yes
      当B出问题了，它的从节点会自动成为主节点，如果B主节点从节点都出问题了，B 负责处理 5501 号至 11000 号哈希槽就处理不了，整个集群就出问题了。  
      想移除B节点之前，先备份它的哈希槽到其他节点之后在移除。 
   
-  
+  #####【<a name="性能测试" id="性能测试"><font color=black>性能测试</font></a>】
+  从新加坡服务器20.16 直接插入120万  redis服务器 20.18
+  test1 redis1200000总的时间：264
+
+  从新加坡服务器20.16 开三线程执行120万 redis服务器 20.18
+	test2 redis的时间：94
+	test2 redis的时间：94
+	test2 redis的时间：94
+
+
+  从新加坡服务器20.13 直接插入120万  redis服务器 20.16 集群
+	test1 redis1200000总的时间：309
+
+   从新加坡服务器20.13 开三线程执行120万  redis服务器 20.16 集群
+	test2 redis的时间：109
+	test2 redis的时间：109
+	test2 redis的时间：109
+
+
   
   
