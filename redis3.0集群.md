@@ -271,23 +271,23 @@ Do you want to proceed with the proposed reshard plan (yes/no)? yes
      想移除B节点之前，先备份它的哈希槽到其他节点之后在移除。 
   
   【<a name="性能测试" id="性能测试"><font color=black>性能测试</font></a>】  
-  从新加坡服务器20.16 直接插入120万  redis服务器 20.18
-  test1 redis1200000总的时间：264
+  从新加坡服务器20.16 直接插入120万  redis服务器 20.18   
+  test1 redis1200000总的时间：264   
 
-  从新加坡服务器20.16 开三线程执行120万 redis服务器 20.18
-	test2 redis的时间：94
-	test2 redis的时间：94
-	test2 redis的时间：94
-
-
-  从新加坡服务器20.13 直接插入120万  redis服务器 20.16 集群
-	test1 redis1200000总的时间：309
-
-   从新加坡服务器20.13 开三线程执行120万  redis服务器 20.16 集群
-	test2 redis的时间：109
-	test2 redis的时间：109
-	test2 redis的时间：109
-
+  从新加坡服务器20.16 开三线程执行120万 redis服务器 20.18   
+	test2 redis的时间：94   
+	test2 redis的时间：94   
+	test2 redis的时间：94    
+   
+   
+  从新加坡服务器20.13 直接插入120万  redis服务器 20.16 集群   
+	test1 redis1200000总的时间：309   
+   
+   从新加坡服务器20.13 开三线程执行120万  redis服务器 20.16 集群   
+	test2 redis的时间：109   
+	test2 redis的时间：109   
+	test2 redis的时间：109   
+  
 
   
   
