@@ -270,7 +270,7 @@ Do you want to proceed with the proposed reshard plan (yes/no)? yes
      当B出问题了，它的从节点会自动成为主节点，如果B主节点从节点都出问题了，B 负责处理 5501 号至 11000 号哈希槽就处理不了，整个集群就出问题了。  
      想移除B节点之前，先备份它的哈希槽到其他节点之后在移除。 
   
-  #####【<a name="性能测试" id="性能测试"><font color=black>性能测试</font></a>】
+  【<a name="性能测试" id="性能测试"><font color=black>性能测试</font></a>】  
   从新加坡服务器20.16 直接插入120万  redis服务器 20.18
   test1 redis1200000总的时间：264
 
