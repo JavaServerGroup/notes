@@ -51,7 +51,7 @@ docker registry 分为2个版本，第一版是python写成的，第二版是go�
     service docker restart
     docker run -d -p 5000:5000 --name registry -v $PWD/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2
 
-在其他服务器中也进行**安装证书和配置域名**并重启docker进程后就可以使用了，
+在其他服务器中也进行安装证书和配置域名并重启docker进程后就可以使用了，
     
     docker pull ubuntu && docker tag ubuntu myregistrydomain.com:5000/ubuntu
     docker push myregistrydomain.com:5000/ubuntu
