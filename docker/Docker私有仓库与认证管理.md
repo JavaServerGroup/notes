@@ -72,7 +72,7 @@ docker registry 分为2个版本，第一版是python写成的，第二版是go�
       -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
       registry:2
 
-      docker login myregistrydomain.com:5000
+    docker login myregistrydomain.com:5000
 
 #compose file
 
