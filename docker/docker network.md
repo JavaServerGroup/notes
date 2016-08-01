@@ -64,7 +64,7 @@ For example, let’s use -o or --opt options to specify an IP address binding wh
     docker network create --subnet 172.20.0.0/16 --ip-range 172.20.240.0/20 multi-host-network
     docker network connect --ip 172.20.128.2 multi-host-network container2
 
-#docker network ls
+##docker network ls
     Usage:  docker network ls [OPTIONS]
     List networks
     Aliases:
@@ -95,7 +95,7 @@ For example, let’s use -o or --opt options to specify an IP address binding wh
           --help    Print usage
 
     $ docker network disconnect multi-host-network container1
-#docker network rm
+##docker network rm
     Usage:  docker network rm NETWORK [NETWORK]...
     Remove a network
     Aliases:
@@ -105,7 +105,7 @@ For example, let’s use -o or --opt options to specify an IP address binding wh
 
     $ docker network rm my-network 3695c422697f
 
-#docker network inspect
+##docker network inspect
     Usage:  docker network inspect [OPTIONS] NETWORK [NETWORK...]
     Display detailed information on one or more networks
     Options:
