@@ -74,12 +74,12 @@ Network Time Protocol简称（ntp），是一个能使计算机之间实现时�
 ##### 步骤:
  
 1.查看CentOS当前时区，发现不是UTC时区：
+
     # date
-    
         Mon Aug 22 05:55:22 EDT 2016
 2.在CentOS中执行命令，修改/etc/sysconfig/clock配置文件
+
     # vim /etc/sysconfig/clock
-    
         #The timezone of the system is defined by the contents of /etc/localtime.
             ZONE="America/New_York"
             UTC=true
@@ -90,20 +90,24 @@ Network Time Protocol简称（ntp），是一个能使计算机之间实现时�
             ZONE="UTC"
             UTC=true
             
-   保存，退出，执行命令：
-   
+保存，退出，执行命令：
+
     :wq
    
 3.建立软连接，将CentOS的时区设置为UTC时区，命令是:
+
     # ln -sf /usr/share/zoneinfo/UTC /etc/localtime
     
 4.对准时间，命令是：
+
     # ntpdate cn.pool.ntp.org
     
 5.设置硬件时间和系统时间一致并校准，命令是：
+
     # /sbin/hwclock --systohc
     
 6.建议在CentOS中设置定时同步时区的任务
+
      # crontab -e
      
 添加命令，目的是每天早上六点执行同步时区的任务，在logger -t NTP中，logger 是一个shell 命令接口，可以通过该接口使用Syslog的系统日志模块，还可以从命令行直接向系统日志文件写入一行信息，-t NTP 每行记录都加上“NTP”这个标签
@@ -111,6 +115,6 @@ Network Time Protocol简称（ntp），是一个能使计算机之间实现时�
     0 6 * * * /usr/sbin/ntpdate cn.pool.ntp.org | logger -t NTP
 
 保存，退出，执行命令：
-   
+
     :wq
     
