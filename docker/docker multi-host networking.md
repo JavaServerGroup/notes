@@ -8,7 +8,7 @@ docker多宿主机间的容器通信主要有以下三种方式。
 docker 1.12之后新增了一个swarm mode被集成在docker engine中，安装docker后就可以被使用，且不需要额外的key-value存储和负载均衡器。
 下面以配置一个shakeshakeapp为例，
 
-有两台宿主机 172.25.10.11和172.25.10.12，在上面分别装有docker-engine
+有两台宿主机 172.25.10.11和172.25.10.12，在上面分别装有docker-engine,开放端口2377 tcp端口, 7946 4789 tcp udp 端口
 
 172.25.10.12上执行
 
