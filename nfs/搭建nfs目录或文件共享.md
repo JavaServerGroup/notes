@@ -3,6 +3,7 @@ NFS，英文全称是Network File System，中文全称是网络文件系统，�
 ###二、组成
 NFS体系至少有两部分，
 一台NFS服务器和若干客户机，如图所示：
+![alt text](/nfs/pic1.png "Title")
 客户机通过TCP/IP网络远程访问存放在NFS服务器上的数据
 ###三、配置
 ####【服务器端】
