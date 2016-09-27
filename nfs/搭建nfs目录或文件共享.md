@@ -22,12 +22,11 @@ NFS可以被视为一个RPC服务，而要启动任何一个RPC服务之前，�
 
 查看系统是否安装nfs服务
 
-     [root@test]# rpm -qa | grep nfs  / rpm -qa | grep rpcbind
+      [root@test]# rpm -qa | grep nfs  / rpm -qa | grep rpcbind
 
 yum安装nfs   
 
      [root@test]# yum install nfs-utils -y
-
 
 2.安装完成之后的主要设定项如下：
 
@@ -102,94 +101,178 @@ yum安装nfs
 执行命令：
 
      [root@test]# vim /etc/sysconfig/nfs
+     
 文本内容如下
 
+![mahua](mahua-logo.jpg)
+##MaHua是什么?
+一个在线编辑markdown文档的编辑器
 
-    #
-    # Define which protocol versions mountd
-    # will advertise. The values are "no" or "yes"
-    # with yes being the default
-    #MOUNTD_NFS_V2="no"
-    #MOUNTD_NFS_V3="no"
-    #
-    #
-    # Path to remote quota server. See rquotad(8)
-    #RQUOTAD="/usr/sbin/rpc.rquotad"
-    # Port rquotad should listen on.
-    RQUOTAD_PORT=1001
-    # Optinal options passed to rquotad
-    #RPCRQUOTADOPTS=""
-    #
-    #
-    # Optional arguments passed to in-kernel lockd
-    #LOCKDARG=
-    # TCP port rpc.lockd should listen on.
-    LOCKD_TCPPORT=30001
-    # UDP port rpc.lockd should listen on.
-    LOCKD_UDPPORT=30001
-    #
-    #
-    # Optional arguments passed to rpc.nfsd. See rpc.nfsd(8)
-    # Turn off v2 and v3 protocol support
-    #RPCNFSDARGS="-N 2 -N 3"
-    # Turn off v4 protocol support
-    #RPCNFSDARGS="-N 4"
-    # Number of nfs server processes to be started.
-    # The default is 8.
-    #RPCNFSDCOUNT=8
-    # Stop the nfsd module from being pre-loaded
-    #NFSD_MODULE="noload"
-    # Set V4 and NLM grace periods in seconds
-    #
-    # Warning, NFSD_V4_GRACE should not be less than
-    # NFSD_V4_LEASE was on the previous boot.
-    #
-    # To make NFSD_V4_GRACE shorter, with active v4 clients,
-    # first make NFSD_V4_LEASE shorter, then restart server.
-    # This will make the clients aware of the new value.
-    # Then NFSD_V4_GRACE can be decreased with another restart.
-    #
-    # When there are no active clients, changing these values
-    # can be done in a single server restart.
-    #
-    #NFSD_V4_GRACE=90
-    #NFSD_V4_LEASE=90
-    #NLM_GRACE_PERIOD=90
-    #
-    #
-    #
-    # Optional arguments passed to rpc.mountd. See rpc.mountd(8)
-    #RPCMOUNTDOPTS=""
-    # Port rpc.mountd should listen on.
-    MOUNTD_PORT=1002
-    #
-    #
-    # Optional arguments passed to rpc.statd. See rpc.statd(8)
-    #STATDARG=""
-    # Port rpc.statd should listen on.
-    #STATD_PORT=662
-    # Outgoing port statd should used. The default is port
-    # is random
-    #STATD_OUTGOING_PORT=2020
-    # Specify callout program
-    #STATD_HA_CALLOUT="/usr/local/bin/foo"
-    #
-    #
-    # Optional arguments passed to rpc.idmapd. See rpc.idmapd(8)
-    #RPCIDMAPDARGS=""
-    #
-    # Set to turn on Secure NFS mounts.
-    #SECURE_NFS="yes"
-    # Optional arguments passed to rpc.gssd. See rpc.gssd(8)
-    #RPCGSSDARGS=""
-    # Optional arguments passed to rpc.svcgssd. See rpc.svcgssd(8)
-    #RPCSVCGSSDARGS=""
-    #
-    # To enable RDMA support on the server by setting this to
-    # the port the server should listen on
-    #RDMA_PORT=20049
+向Mac下优秀的markdown编辑器mou致敬
+
+##MaHua有哪些功能？
+
+* 方便的`导入导出`功能
+    *  直接把一个markdown的文本文件拖放到当前这个页面就可以了
+    *  导出为一个html格式的文件，样式一点也不会丢失
+* 编辑和预览`同步滚动`，所见即所得（右上角设置）
+* `VIM快捷键`支持，方便vim党们快速的操作 （右上角设置）
+* 强大的`自定义CSS`功能，方便定制自己的展示
+* 有数量也有质量的`主题`,编辑器和预览区域
+* 完美兼容`Github`的markdown语法
+* 预览区域`代码高亮`
+* 所有选项自动记忆
+
+##有问题反馈
+在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
+
+* 邮件(dev.hubo#gmail.com, 把#换成@)
+* QQ: 287759234
+* weibo: [@草依山](http://weibo.com/ihubo)
+* twitter: [@ihubo](http://twitter.com/ihubo)
+
+##捐助开发者
+在兴趣的驱动下,写一个`免费`的东西，有欣喜，也还有汗水，希望你喜欢我的作品，同时也能支持一下。
+当然，有钱捧个钱场（右上角的爱心标志，支持支付宝和PayPal捐助），没钱捧个人场，谢谢各位。
+
+##感激
+感谢以下的项目,排名不分先后
+
+* [mou](http://mouapp.com/) 
+* [ace](http://ace.ajax.org/)
+* [jquery](http://jquery.com)
+
+##关于作者
+
+```javascript
+  var ihubo = {
+    nickName  : "草依山",
+    site : "http://jser.me"
+  }
+```
 
 
+
+<table>
+    <thead>
+        <th>参数</th>
+        <th>内容说明</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>rw<br/>ro</td>
+            <td>该目录分享的权限是可读写（读写）或唯读（只读），但最终能不能读写，还是与档案系统的RWX及身份有关</td>
+        </tr>
+        <tr>
+            <td>sync<br/>async</td>
+            <td>sync 表示资料会同步写入到buffer和磁盘中<br/>async 则表示资料会先暂存于buffer中，而非直接写入磁盘！</td>
+        </tr>
+        <tr>
+            <td>no_root_squash<br/>root_squash</td>
+            <td>预设的情况下，用户端 root 的身份会由 root_squash 的设定压缩成 nfsnobody，如此对伺服器的系统会较有保障。但如果你想要开放用户端使用 root 身份来操作伺服器的档案系统，那么这里就得要开 no_root_squash</td>
+        </tr>
+        <tr>
+            <td>all_squash</td>
+            <td>不论登入NFS的使用者身份是什么，用户名都会被压缩成为匿名使用者，通常也就是没有人（nfsnobody）</td>
+        </tr>
+        <tr>
+            <td>anonuid</br>anongid</td>
+            <td>匿名意指匿名（匿名者）前面关于* _squash提到的匿名使用者的UID设定值，通常为没人（nfsnobody），但是你可以自行设定这个UID的值！当然，这个UID必需要存在于你的/etc/passwd文件当中，anonuid指的是UID而anongid则是群组的GID</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<strong style="color:blue">
+
+
+######    # Define which protocol versions mountd
+######    # will advertise. The values are "no" or "yes"
+######    # with yes being the default
+######    #MOUNTD_NFS_V2="no"
+######    #MOUNTD_NFS_V3="no"
+######    #
+######    #
+######    # Path to remote quota server. See rquotad(8)
+######    #RQUOTAD="/usr/sbin/rpc.rquotad"
+######    # Port rquotad should listen on.   
+######    <strong style="color:red">RQUOTAD_PORT=1001</strong>
+######    # Optinal options passed to rquotad
+######    #RPCRQUOTADOPTS=""
+######    #
+######    #
+######    # Optional arguments passed to in-kernel lockd
+######    #LOCKDARG=
+######    # TCP port rpc.lockd should listen on.
+######    <strong style="color:red">LOCKD_TCPPORT=30001</strong>
+######    # UDP port rpc.lockd should listen on.
+######    <strong style="color:red">LOCKD_UDPPORT=30001</strong>
+######    #
+######    #
+######    # Optional arguments passed to rpc.nfsd. See rpc.nfsd(8)
+######    # Turn off v2 and v3 protocol support
+######    #RPCNFSDARGS="-N 2 -N 3"
+######    # Turn off v4 protocol support
+######    #RPCNFSDARGS="-N 4"
+######    # Number of nfs server processes to be started.
+######    # The default is 8.
+######    #RPCNFSDCOUNT=8
+######    # Stop the nfsd module from being pre-loaded
+######    #NFSD_MODULE="noload"
+######    # Set V4 and NLM grace periods in seconds
+######    #
+######    # Warning, NFSD_V4_GRACE should not be less than
+######    # NFSD_V4_LEASE was on the previous boot.
+######    #
+######    # To make NFSD_V4_GRACE shorter, with active v4 clients,
+######    # first make NFSD_V4_LEASE shorter, then restart server.
+######    # This will make the clients aware of the new value.
+######    # Then NFSD_V4_GRACE can be decreased with another restart.
+######    #
+######    # When there are no active clients, changing these values
+######    # can be done in a single server restart.
+######    #
+######    #NFSD_V4_GRACE=90
+######    #NFSD_V4_LEASE=90
+######    #NLM_GRACE_PERIOD=90
+######    #
+######    #
+######    #
+######    # Optional arguments passed to rpc.mountd. See rpc.mountd(8)
+######    #RPCMOUNTDOPTS=""
+######    # Port rpc.mountd should listen on.
+######    <strong style="color:red">MOUNTD_PORT=1002</strong>
+######    #
+######    #
+######    # Optional arguments passed to rpc.statd. See rpc.statd(8)
+######  #STATDARG=""
+######    # Port rpc.statd should listen on.
+######    #STATD_PORT=662
+######    # Outgoing port statd should used. The default is port
+######    # is random
+######    #STATD_OUTGOING_PORT=2020
+######    # Specify callout program
+######    #STATD_HA_CALLOUT="/usr/local/bin/foo"
+######    #
+######    #
+######    # Optional arguments passed to rpc.idmapd. See rpc.idmapd(8)
+######    #RPCIDMAPDARGS=""
+######    #
+######    # Set to turn on Secure NFS mounts.
+######    #SECURE_NFS="yes"
+######    # Optional arguments passed to rpc.gssd. See rpc.gssd(8)
+######    #RPCGSSDARGS=""
+######    # Optional arguments passed to rpc.svcgssd. See rpc.svcgssd(8)
+######    #RPCSVCGSSDARGS=""
+######    #
+######    # To enable RDMA support on the server by setting this to
+######    # the port the server should listen on
+######   #RDMA_PORT=20049
+   
+</strong>
 5.检测
 
 在设定好nfs服务器端之后，我们可以在服务器端自我测试是否可以连线，这个时候便用到showmount命令，执行命令：
