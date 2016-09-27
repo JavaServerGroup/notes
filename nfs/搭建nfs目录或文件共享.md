@@ -3,8 +3,11 @@ NFS，英文全称是Network File System，中文全称是网络文件系统，�
 ###二、组成
 NFS体系至少有两部分，
 一台NFS服务器和若干客户机，如图所示：
-![alt text](/nfs/pic1.png "Title")
+
+   ![pic1](/nfs/images/pic1.png "test")
+
 客户机通过TCP/IP网络远程访问存放在NFS服务器上的数据
+
 ###三、配置
 ####【服务器端】
 
@@ -17,12 +20,12 @@ NFS可以被视为一个RPC服务，而要启动任何一个RPC服务之前，�
 
 执行命令：
 
-查看系统是否安装nfs服务 
-    
+查看系统是否安装nfs服务
+
      [root@test]# rpm -qa | grep nfs  / rpm -qa | grep rpcbind
-     
-yum安装nfs    
-    
+
+yum安装nfs   
+
      [root@test]# yum install nfs-utils -y
 
 
@@ -31,6 +34,8 @@ yum安装nfs
 配置文件：/etc/exports
 
   这个文件就是NFS的主要配置文件，系统并没有预设值，所以这个档案不一定会存在，你可能必须要使用vim手动建立；
+
+  ![pic2](/nfs/images/pic2.png "test2")
 
   其中允许的网段，如果设置为*，则表示允许所有网段，至于权限设置有一些常用的参数，如下：
 
@@ -71,6 +76,8 @@ yum安装nfs
 
      [root@test]# rpcinfo -p
 
+ ![pic3](/nfs/images/pic3.png "test3")
+
 由此可以看出需要开启的端口很多，稍稍整理之后，结论如下：
 
   * rpcbind启动的端口是111，同时启动在udp和tcp
@@ -81,6 +88,7 @@ yum安装nfs
 
      [root@test]# vim /etc/sysconfig/nfs
 文本内容如下
+
 
     #
     # Define which protocol versions mountd
@@ -166,12 +174,14 @@ yum安装nfs
     # the port the server should listen on
     #RDMA_PORT=20049
 
+
 5.检测
 
 在设定好nfs服务器端之后，我们可以在服务器端自我测试是否可以连线，这个时候便用到showmount命令，执行命令：
 
      [root@test]# showmount -e localhost
 
+ ![pic4](/nfs/images/pic4.png "test4")
 
 ####【用户端】
 作为用户端只需要开启nfs服务，然后挂载服务器端共享出来的目录即可，那么步骤如下：
@@ -189,7 +199,7 @@ yum安装nfs
      [root@test]# chkconfig rpcbind on
      [root@test]# chkconfig nfs on
      [root@test]# chkconfig nfslock on
- 
+
 2.挂载
 
 执行命令：
@@ -197,13 +207,15 @@ yum安装nfs
      [root@test]# mount -t nfs 172.17.30.53:/userdata1/test /userdata1/test
      [root@test]# df -h
 
+ ![pic5](/nfs/images/pic5.png "test5")
+
 命令df -h，可以查看是否挂载成功，如上图，红框中是挂载成功的
 
 ####【测试】
 为了验证是否正确搭建nfs，我们先在服务器端共享目录新建一个文件，执行命令：
 
      [root@test]# vi test
-     
+
 写入一些文本，保存退出，
 
 接着，去到用户端相应的目录查看是否已经有了同步过来的test文件，如果没有说明未搭建成功，请自行检查问题
