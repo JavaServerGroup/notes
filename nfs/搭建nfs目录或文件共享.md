@@ -39,19 +39,34 @@ yum安装nfs
 
   其中允许的网段，如果设置为*，则表示允许所有网段，至于权限设置有一些常用的参数，如下：
 
-
-  rw/ro：该目录分享的权限是可读写（读写）或唯读（只读），但最终能不能读写，还是与档案系统的RWX及身份有关;
-
-  sync/async：sync 表示资料会同步写入到buffer和磁盘中；async 则表示资料会先暂存于buffer中，而非直接写入磁盘;
-
-  no_root_squash/root_squash：预设的情况下，用户端 root 的身份会由 root_squash 的设定压缩成 nfsnobody， 如此对伺服器的系统会较有保障
- 。但如果你想要开放用户端使用 root 身份来操作伺服器的档案系统，那么这里就得要开 no_root_squash;
-
-  all_squash：不论登入NFS的使用者身份是什么，用户名都会被压缩成为匿名使用者，通常也就是没有人（nfsnobody）;
-
-  anonuid/anongid：匿名意指匿名（匿名者）前面关于* _squash提到的匿名使用者的UID设定值，通常为没人（nfsnobody），但是你可以自行设定这
-  个UID的值！当然，这个UID必需要存在于你的/etc/passwd文件当中，anonuid指的是UID而anongid则是群组的GID。
-
+<table>
+    <thead>
+        <th>参数</th>
+        <th>内容说明</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>rw<br/>ro</td>
+            <td>该目录分享的权限是可读写（读写）或唯读（只读），但最终能不能读写，还是与档案系统的RWX及身份有关</td>
+        </tr>
+        <tr>
+            <td>sync<br/>async</td>
+            <td>sync 表示资料会同步写入到buffer和磁盘中<br/>async 则表示资料会先暂存于buffer中，而非直接写入磁盘！</td>
+        </tr>
+        <tr>
+            <td>no_root_squash<br/>root_squash</td>
+            <td>预设的情况下，用户端 root 的身份会由 root_squash 的设定压缩成 nfsnobody，如此对伺服器的系统会较有保障。但如果你想要开放用户端使用 root 身份来操作伺服器的档案系统，那么这里就得要开 no_root_squash</td>
+        </tr>
+        <tr>
+            <td>all_squash</td>
+            <td>不论登入NFS的使用者身份是什么，用户名都会被压缩成为匿名使用者，通常也就是没有人（nfsnobody）</td>
+        </tr>
+        <tr>
+            <td>anonuid</br>anongid</td>
+            <td>匿名意指匿名（匿名者）前面关于* _squash提到的匿名使用者的UID设定值，通常为没人（nfsnobody），但是你可以自行设定这个UID的值！当然，这个UID必需要存在于你的/etc/passwd文件当中，anonuid指的是UID而anongid则是群组的GID</td>
+        </tr>
+    </tbody>
+</table>
 用户端查询服务器端分享资源的指令：/usr/sbin/showmount
 
 这是另一个重要的NFS指令， exportfs是用在NFS服务器端，而showmount显示则主要用在客户端，showmount显示可以用来察看NFS分享出来的目录资源。
