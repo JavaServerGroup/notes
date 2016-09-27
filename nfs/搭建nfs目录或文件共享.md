@@ -75,7 +75,7 @@ yum安装nfs
 
 执行命令：
 
-     [root@test]#  /etc/init.d/rpcbind start
+     [root@test]# /etc/init.d/rpcbind start
      [root@test]# /etc/init.d/nfs start
      [root@test]# /etc/init.d/nfslock start
 
