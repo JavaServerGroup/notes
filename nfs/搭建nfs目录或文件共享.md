@@ -1,6 +1,6 @@
-###一、简介
+##一、简介
 NFS，英文全称是Network File System，中文全称是网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源，在NFS应用中，本地NFS的客户端应用可以透明的读写位于远端NFS服务器上，就像访问本地文件。
-###二、组成
+##二、组成
 NFS体系至少有两部分，
 一台NFS服务器和若干客户机，如图所示：
 
@@ -8,12 +8,12 @@ NFS体系至少有两部分，
 
 客户机通过TCP/IP网络远程访问存放在NFS服务器上的数据
 
-###三、配置
-####【服务器端】
+##三、配置
+###【服务器端】
 
 步骤如下：
 
-1.安装
+####1. 安装nfs
 
 NFS可以被视为一个RPC服务，而要启动任何一个RPC服务之前，需要做好端口的对应（映射）的工作，这个工作其实就是RPCBIND这个服务所负责的。
 也就是说，在启动任何一个RPC服务之前，我们都需要启动RPCBIND才行！（注意：在CentOS的5.x以前这个软体称为端口映射，在CentOS的6.x之后才称为RPCBIND）
@@ -28,7 +28,7 @@ yum安装nfs
 
      [root@test]# yum install nfs-utils -y
 
-2.安装完成之后的主要设定项如下：
+####2. 设置nfs
 
 配置文件：/etc/exports
 
@@ -70,7 +70,7 @@ yum安装nfs
 
 这是另一个重要的NFS指令， exportfs是用在NFS服务器端，而showmount显示则主要用在客户端，showmount显示可以用来察看NFS分享出来的目录资源。
 
-3.启动服务
+####3. 启动nfs
 
 执行命令：
 
@@ -84,7 +84,7 @@ yum安装nfs
      [root@test]# chkconfig nfs on
      [root@test]# chkconfig nfslock on
 
-4.配置
+####4. 配置端口
 
 该服务需要开启防火墙，那么到底要开启哪些端口呢，执行一条命令即可知道，执行命令：
 
@@ -102,96 +102,18 @@ yum安装nfs
 
      [root@test]# vim /etc/sysconfig/nfs
      
-文本内容如下         
+需要修改的文本内容如下：       
 
-<strong style="color:blue">
+     RQUOTAD_PORT=1001
+
+     LOCKD_TCPPORT=30001
+
+     LOCKD_UDPPORT=30001
+
+     MOUNTD_PORT=1002
 
 
-#####    # Define which protocol versions mountd
-#####    # will advertise. The values are "no" or "yes"
-#####    # with yes being the default
-#####    #MOUNTD_NFS_V2="no"
-#####    #MOUNTD_NFS_V3="no"
-#####    #
-#####    #
-#####    # Path to remote quota server. See rquotad(8)
-#####    #RQUOTAD="/usr/sbin/rpc.rquotad"
-#####    # Port rquotad should listen on.   
-#####    <strong style="color:red">RQUOTAD_PORT=1001</strong>
-#####    # Optinal options passed to rquotad
-#####    #RPCRQUOTADOPTS=""
-#####    #
-#####    #
-#####    # Optional arguments passed to in-kernel lockd
-#####    #LOCKDARG=
-#####    # TCP port rpc.lockd should listen on.
-#####    <strong style="color:red">LOCKD_TCPPORT=30001</strong>
-#####    # UDP port rpc.lockd should listen on.
-#####    <strong style="color:red">LOCKD_UDPPORT=30001</strong>
-#####    #
-#####    #
-#####    # Optional arguments passed to rpc.nfsd. See rpc.nfsd(8)
-#####    # Turn off v2 and v3 protocol support
-#####    #RPCNFSDARGS="-N 2 -N 3"
-#####    # Turn off v4 protocol support
-#####    #RPCNFSDARGS="-N 4"
-#####    # Number of nfs server processes to be started.
-#####    # The default is 8.
-#####    #RPCNFSDCOUNT=8
-#####    # Stop the nfsd module from being pre-loaded
-#####    #NFSD_MODULE="noload"
-#####    # Set V4 and NLM grace periods in seconds
-#####    #
-#####    # Warning, NFSD_V4_GRACE should not be less than
-#####    # NFSD_V4_LEASE was on the previous boot.
-#####    #
-#####    # To make NFSD_V4_GRACE shorter, with active v4 clients,
-#####    # first make NFSD_V4_LEASE shorter, then restart server.
-#####    # This will make the clients aware of the new value.
-#####    # Then NFSD_V4_GRACE can be decreased with another restart.
-#####    #
-#####    # When there are no active clients, changing these values
-#####    # can be done in a single server restart.
-#####    #
-#####    #NFSD_V4_GRACE=90
-#####    #NFSD_V4_LEASE=90
-#####    #NLM_GRACE_PERIOD=90
-#####    #
-#####    #
-#####    #
-#####    # Optional arguments passed to rpc.mountd. See rpc.mountd(8)
-#####    #RPCMOUNTDOPTS=""
-#####    # Port rpc.mountd should listen on.
-#####    <strong style="color:red">MOUNTD_PORT=1002</strong>
-#####    #
-#####    #
-#####    # Optional arguments passed to rpc.statd. See rpc.statd(8)
-#####  #STATDARG=""
-#####    # Port rpc.statd should listen on.
-#####    #STATD_PORT=662
-#####    # Outgoing port statd should used. The default is port
-#####    # is random
-#####    #STATD_OUTGOING_PORT=2020
-#####    # Specify callout program
-#####    #STATD_HA_CALLOUT="/usr/local/bin/foo"
-#####    #
-#####    #
-#####    # Optional arguments passed to rpc.idmapd. See rpc.idmapd(8)
-#####    #RPCIDMAPDARGS=""
-#####    #
-#####    # Set to turn on Secure NFS mounts.
-#####    #SECURE_NFS="yes"
-#####    # Optional arguments passed to rpc.gssd. See rpc.gssd(8)
-#####    #RPCGSSDARGS=""
-#####    # Optional arguments passed to rpc.svcgssd. See rpc.svcgssd(8)
-#####    #RPCSVCGSSDARGS=""
-#####    #
-#####    # To enable RDMA support on the server by setting this to
-#####    # the port the server should listen on
-#####   #RDMA_PORT=20049
-   
-</strong>
-5.检测
+####5. 检测nfs
 
 在设定好nfs服务器端之后，我们可以在服务器端自我测试是否可以连线，这个时候便用到showmount命令，执行命令：
 
@@ -199,7 +121,7 @@ yum安装nfs
 
  ![pic4](/nfs/images/pic4.png "test4")
 
-####【用户端】
+##【用户端】
 作为用户端只需要开启nfs服务，然后挂载服务器端共享出来的目录即可，那么步骤如下：
 
 1.开启nfs服务
@@ -227,7 +149,7 @@ yum安装nfs
 
 命令df -h，可以查看是否挂载成功，如上图，红框中是挂载成功的
 
-####【测试】
+##【测试】
 为了验证是否正确搭建nfs，我们先在服务器端共享目录新建一个文件，执行命令：
 
      [root@test]# vi test
