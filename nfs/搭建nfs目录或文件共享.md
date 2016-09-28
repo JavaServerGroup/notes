@@ -122,9 +122,11 @@ yum安装nfs
  ![pic4](/nfs/images/pic4.png "test4")
 
 ##【用户端】
-作为用户端只需要开启nfs服务，然后挂载服务器端共享出来的目录即可，那么步骤如下：
+作为用户端只需要开启nfs服务，然后挂载服务器端共享出来的目录即可，
 
-1.开启nfs服务
+步骤如下：
+
+####1. 启动nfs
 
 执行命令：
 
@@ -138,7 +140,7 @@ yum安装nfs
      [root@test]# chkconfig nfs on
      [root@test]# chkconfig nfslock on
 
-2.挂载
+####2. 挂载目录
 
 执行命令：
 
