@@ -6,7 +6,7 @@
 # Dockerfile
 
 Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之后使用docker build 命令基于dockerfile中的指令构建镜像。
-<code>
+    
     #Version: 0.0.1
     FROM ubuntu
     MAINTAINER James Turnbull "james@example.com"
@@ -63,7 +63,7 @@ Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之�
     #!/bin/bash
     sudo docker rm -f consul_test
     sudo docker run -d -p 8500:8500 -p 54:54/udp --name="consul_test" -h node1 consul_server -server -bootstrap
-</code>
+
 [dockerfile 编写建议规范](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 
 以上为一个Dockerfile文件
