@@ -11,8 +11,7 @@ Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之�
     FROM ubuntu
     MAINTAINER James Turnbull "james@example.com"
     ENV REFRESHED_AT 2016
-    RUN apt-get update \
-     && apt-get install -y nginx \
+    RUN apt-get install -y nginx \
      && echo 'hello' \
         >/usr/share/nginx/html/index/html
     EXPOSE 80
