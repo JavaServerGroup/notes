@@ -6,7 +6,7 @@
 # Dockerfile
 
 Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之后使用docker build 命令基于dockerfile中的指令构建镜像。
-
+<code>
     #Version: 0.0.1
     FROM ubuntu
     MAINTAINER James Turnbull "james@example.com"
@@ -31,13 +31,15 @@ Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之�
     MAINTAINER zhanbo wen <zhanbo.wen@afmobigroup.com>
     ENV REFRESHED_AT 20160706
     ENV TOMCAT_PATH=/opt/app/tomcat
-    RUN apt-get -y install wget \
+    RUN apt-get -y install wget \
      && wget http://apache.fayea.com/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz \
      && tar -zxvf apache-tomcat-8.5.11.tar.gz \
      && rm -rf apache-tomcat-8.5.11.tar.gz \
      && apt-get -y autoremove wget
     RUN mv apache-tomcat-8.5.11 /opt/app/tomcat
+    
     WORKDIR $TOMCAT_PATH/bin
+    
     EXPOSE 8080
     ENTRYPOINT ["./catalina.sh", "run"]
     
@@ -61,7 +63,7 @@ Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之�
     #!/bin/bash
     sudo docker rm -f consul_test
     sudo docker run -d -p 8500:8500 -p 54:54/udp --name="consul_test" -h node1 consul_server -server -bootstrap
-
+</code>
 [dockerfile 编写建议规范](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 
 以上为一个Dockerfile文件
