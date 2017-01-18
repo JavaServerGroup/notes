@@ -11,11 +11,13 @@ Dockerfile 使用基本的基于DSL语法的指令来构建Docker镜像， 之�
     FROM ubuntu
     MAINTAINER James Turnbull "james@example.com"
     ENV REFRESHED_AT 2016
-    RUN aot-get update
-    RUN apt-get install -y nginx
-    RUN echo 'hello' \
+    RUN apt-get update \
+       &&apt-get install -y nginx \
+       && echo 'hello' \
         >/usr/share/nginx/html/index/html
     EXPOSE 80
+
+[dockerfile 编写建议规范](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 
 以上为一个Dockerfile文件
 第一行为注释
