@@ -1,10 +1,10 @@
-##搭建MySQL数据库服务器
+## 搭建MySQL数据库服务器
 
 
 
 
 
-#####【知识目标】
+##### 【知识目标】
 
 1. <a href="#数据库服务器的基本概念">数据库服务器的基本概念</a>
 2. <a href="#MySQL的简介">MySQL的简介</a>
@@ -14,7 +14,7 @@
 
 
 
-#####【<a name="数据库服务器的基本概念" id="数据库服务器的基本概念" ><font color=black>数据库服务器的基本概念</font></a>】
+##### 【<a name="数据库服务器的基本概念" id="数据库服务器的基本概念" ><font color=black>数据库服务器的基本概念</font></a>】
 
 * 数据库
 * 数据库管理系统(DBMS)
@@ -29,7 +29,7 @@
     * 中小型服务器:[MySQL](http://www.mysql.com/)、[PostgreSQL](http://www.postgresql.org/)
 
 
-#####【<a name="MySQL的简介" id="MySQL的简介"><font color=black>MySQL的简介</font></a>】   
+##### 【<a name="MySQL的简介" id="MySQL的简介"><font color=black>MySQL的简介</font></a>】   
 
  * 可以运行在不同平台上,支持多用户、多线程和多CPU,没有内存溢出漏洞;
  * 提供多种数据类型,支持ODBC、SSL、支持多种语言利用MySQL的API进行开发; 
@@ -38,7 +38,7 @@
  * 可以保存超过50,000,000条记录;
  * 用户权限设置简单、有效。
 
-#####【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】
+##### 【<a name="MySQL服务器的安装" id="MySQL服务器的安装"><font color=black>MySQL服务器的安装</font></a>】
 方法一：在线安装
   
   * 步骤1:以root身份登录到CentOS系统；
@@ -85,7 +85,7 @@
    
 
 
-#####【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】
+##### 【<a name="MySQL服务器的配置" id="MySQL服务器的配置"><font color=black>MySQL服务器的配置</font></a>】
  * 步骤1:设置MySQL的root用户密码；
      ```html
     [root@centos ~]# mysql -u root　 ← 用root用户登录MySQL服务器
