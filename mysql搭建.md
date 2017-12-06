@@ -43,10 +43,10 @@
   
   * 步骤1:以root身份登录到CentOS系统；
   * 步骤2:查看系统中是否已安装mysql软件,若无任何显示表明未安装，如果有安装，则移除（rpm –e 名称），如果未能移除，则用rpm --nodeps 名称或是其他强制移除命令；
-    ```html
-    [root@centos ~]# rpm -qa | grep mysql  ← 查看系统中是否已安装mysql软件
-
-  ```
+```shell
+rpm -qa | grep mysql  #查看系统中是否已安装mysql软件
+rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
+```
   * 步骤3:若是有网络可以直接通过命令安装，CentOS系统的命令是yum install mysql-server，而Ubuntu系统的命令是apt-get install mysql-server；
    ```html
     [root@centos ~]# yum install mysql-server <-- install mysql-server
